@@ -1,6 +1,6 @@
 // pages/aboutme.js
 import Image from 'next/image';
-import profilePic from '@/public/profilepicture.png'; // Ensure this path is correct
+import profilePic from '@/public/Profilepicture.png'; // Ensure this path is correct
 
 export default function AboutMe() {
   return (

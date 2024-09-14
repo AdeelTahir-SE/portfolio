@@ -1,101 +1,192 @@
+"use client";
 import Image from "next/image";
+import { useState, useEffect, useRef } from "react";
+import Typed from "typed.js";
+import { useTheme } from "next-themes";
+import coder from "@/public/gif3.png"; // Ensure this path is
+import { Card, CardContent } from "@/components/ui/card";
+import SkillsCard from "@/components/ui/SkillsCard";
+import html from "@/components/ui/html.svg";
+import nodejs from "@/components/ui/nodejs.svg";
+import reactjs from "@/components/ui/reactjs.svg";
+import mongodb from "@/components/ui/mongodb.svg";
+import postgres from "@/components/ui/postgres.svg";
+import mysql from "@/components/ui/mysql.svg";
+import tailwindcss from "@/components/ui/tailwindcss.svg";
+import redis from "@/components/ui/redis.svg";
+import css from "@/components/ui/css.svg";
+import typescript from "@/components/ui/typescript.svg";
+import npm from "@/components/ui/npm.svg";
+import git from "@/components/ui/git.svg";
+import express from "@/components/ui/express.svg";
+import nextjs from "@/components/ui/nextjs.svg";
+import javascript from "@/components/ui/javascript.svg";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const { theme } = useTheme();
+  const typedRef = useRef(null);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    const options = {
+      strings: [
+        "Full Stack Developer",
+        "MERN Stack Developer",
+        "PERN Stack Developer",
+        "React Developer",
+        "Next.js Developer",
+      ],
+      typeSpeed: 50,
+      backSpeed: 25,
+      backDelay: 1000,
+      startDelay: 500,
+      loop: true,
+    };
+    const typed = new Typed(typedRef.current, options);
+    return () => {
+      typed.destroy();
+    };
+  }, []);
+
+  return (
+    <div
+      className={`w-full  flex flex-col items-center justify-center ${
+        theme === "dark" ? "bg-black text-white" : "bg-white text-black"
+      }`}
+    >
+      <div className="flex flex-col md:flex-row items-center justify-between border-b-2 p-3 w-full">
+        <div className="text-center mb-8 md:mb-0 md:mx-28">
+          <h1 className="text-4xl font-bold mb-4">
+            Hi, my name is <span className="text-purple-600">Adeel Tahir</span>
+          </h1>
+          <h2 className="text-2xl">
+            a <span ref={typedRef} className="text-purple-600"></span>
+          </h2>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+
+        <Image
+          src={coder}
+          alt="Picture of the author"
+          width={450}
+          height={400}
+          className="w-64 h-64 md:w-96 md:h-96 mr-9"
+        />
+      </div>
+      <div className="flex flex-col items-center">
+        <h1 className="text-4xl font-bold mb-4 text-purple-600 mt-3">
+          Projects
+        </h1>
+
+        <Carousel className="w-full max-w-sm md:max-w-4xl">
+          <CarouselContent className="-ml-1">
+            {Array.from({ length: 5 }).map((_, index) => (
+              <CarouselItem
+                key={index}
+                className="pl-1 md:basis-1/2 lg:basis-1/3"
+              >
+                <div className="p-1">
+                  <Card>
+                    <CardContent className="flex aspect-square items-center justify-center p-6">
+                      <span className="text-2xl font-semibold">
+                        {index + 1}
+                      </span>
+                    </CardContent>
+                  </Card>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+
+<div className="flex flex-col w-full ">
+        <h1 className="text-4xl font-bold mb-4 text-purple-600 mt-3 text-center">Skills</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 ">
+        <SkillsCard
+            title="HTML"
+            description="language used in creating websites"
+            img={html}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+  <SkillsCard
+      title="Next.js"
+      description="Next.js 14 a framework for creating awesome websites"
+      img={css}
+    />
+<SkillsCard
+      title="JavaScript"
+      description="Programming language that conforms to the ECMAScript specification"
+      img={javascript}
+    />
+ <SkillsCard
+        title="TypeScript"
+        description="Typed superset of JavaScript that compiles to plain JavaScript"
+        img={typescript}
+      />
+          <SkillsCard
+            title="Node.js"
+            description="JavaScript runtime built on Chrome's V8 JavaScript engine"
+            img={nodejs}
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
+          <SkillsCard
+            title="React.js"
+            description="JavaScript library for building user interfaces"
+            img={reactjs}
           />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <SkillsCard
+            title="MongoDB"
+            description="NoSQL database program"
+            img={mongodb}
+          />
+          <SkillsCard
+            title="PostgreSQL"
+            description="Open source relational database management system"
+            img={postgres}
+          />
+          <SkillsCard
+            title="MySQL"
+            description="Open source relational database management system"
+            img={mysql}
+          />
+          {/* <SkillsCard
+            title="Prisma ORM"
+            description="Next-generation ORM for Node.js and TypeScript"
+            img={prismaorm}
+          /> */}
+          <SkillsCard
+            title="Tailwind CSS"
+            description="Utility-first CSS framework"
+            img={tailwindcss}
+          />
+          <SkillsCard
+            title="Redis"
+            description="In-memory data structure store, used as a database, cache, and message broker"
+            img={redis}
+          />
+             <SkillsCard
+      title="Express"
+      description="Fast, unopinionated, minimalist web framework for Node.js"
+      img={express}
+    />
+    <SkillsCard
+      title="Git"
+      description="Distributed version-control system for tracking changes in source code"
+      img={git}
+    />
+    <SkillsCard
+      title="npm"
+      description="Package manager for the JavaScript programming language"
+      img={npm}
+    />
+        </div>
+      </div>
+    </div>
     </div>
   );
 }

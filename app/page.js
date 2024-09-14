@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
+import {  useEffect, useRef } from "react";
 import Typed from "typed.js";
 import { useTheme } from "next-themes";
 import coder from "@/public/gif3.png"; // Ensure this path is correct
@@ -183,6 +183,11 @@ export default function Home() {
               title="React.js"
               description="JavaScript library for building user interfaces"
               img={reactjs}
+            />
+            <SkillsCard
+              title="Next.js"
+              description="Next.js 14 a framework for creating awesome websites"
+              img={nextjs}
             />
             <SkillsCard
               title="MongoDB"

@@ -39,6 +39,12 @@ const projects = [
     description: 'A web-based application that allows users to write, preview, and save Markdown notes. Additionally, users can drag and drop existing Markdown files to view and edit them.',
     link: 'https://github.com/AdeelTahir-SE/MarkoConvert',
     techs: ['Node.js', 'Express', ,'REST api','React','Prisma ORM','tailwindcss','PrismaORM','Postgres']
+  },
+  {
+    title: 'MarkoConvert',
+    description: 'A web-based application that allows users to write, preview, and save Markdown notes. Additionally, users can drag and drop existing Markdown files to view and edit them.',
+    link: 'https://github.com/AdeelTahir-SE/MarkoConvert',
+    techs: ['Node.js', 'Express', ,'REST api','React','Prisma ORM','tailwindcss','PrismaORM','Postgres']
   }
 ];
 

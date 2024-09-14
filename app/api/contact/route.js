@@ -11,14 +11,14 @@ console.log(body)
       service: 'Gmail',
       auth: {
         user: body.email, // Use environment variable for email
-        pass: "hivc ivla mifz tfbl", // Use environment variable for email password
+        pass: process.env.GMAIL_PASS, // Use environment variable for email password
       },
     });
 
     // Set up email data
     let mailOptions = {
       from: body.email, // Sender address (from the form input)
-      to: "adeeltahir6a@gmail.com", // List of receivers
+      to: process.env.MY_EMAIL, // List of receivers
       subject: 'New Client Request', // Subject line
       text: `Name: ${body.name}\nEmail: ${body.email}\nMessage: ${body.message}`, // Plain text body
     };

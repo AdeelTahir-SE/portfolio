@@ -22,7 +22,7 @@ export default function AboutMe() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
             <h3 className="text-3xl font-extrabold mb-4 text-purple-600">Skills</h3>
-            <ul className="list-disc list-inside space-y-2 text-lg flex grid grid-cols-2">
+            <ul className="list-disc list-inside space-y-2 text-lg  grid-cols-2">
               <li>JavaScript</li>
               <li>Typescript</li>
               <li>React.js</li>

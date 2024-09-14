@@ -52,6 +52,12 @@ const projects = [
     description: 'Allows users to manage to-do items with endpoints for CRUD operations, secured using JWT and Prisma for database interactions.',
     techs: ['Node.js', 'Express', 'REST api', 'Postgres', 'Prisma ORM']
   }
+  ,
+  {
+    title: 'See more Projects',
+    description: 'For More projects visit Projects PAGE',
+    techs: []
+  }
 ];
 
 export default function Home() {
@@ -81,9 +87,7 @@ export default function Home() {
 
   return (
     <div
-      className={`w-full flex flex-col items-center justify-center pb-32 ${
-        theme === "dark" ? "bg-black text-white" : "bg-white text-black"
-      }`}
+      className={'w-full flex flex-col items-center justify-center pb-32 bg-white text-black dark:bg-black dark:text-white'}
     >
       <div className="flex flex-col md:flex-row items-center justify-between border-b-2 p-3 w-full">
         <div className="text-center mb-8 md:mb-0 md:mx-28">
@@ -100,7 +104,7 @@ export default function Home() {
           alt="Picture of the author"
           width={450}
           height={400}
-          className="w-64 h-64 md:w-96 md:h-96 mr-9"
+          className="w-64 h-64 md:w-96 md:h-80 mr-9"
         />
       </div>
       <div className="flex flex-col items-center">

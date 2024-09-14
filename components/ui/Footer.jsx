@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import {  FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
 
 export default function Footer() {
   return (
@@ -20,17 +20,22 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li className="mb-2">
-                  <Link href="/about" className="hover:underline">
-                    About Us
+                  <Link href="/AboutMe" className="hover:underline">
+                    About me
                   </Link>
                 </li>
                 <li className="mb-2">
-                  <Link href="/services" className="hover:underline">
+                  <Link href="/Services" className="hover:underline">
                     Services
                   </Link>
                 </li>
                 <li className="mb-2">
-                  <Link href="/contact" className="hover:underline">
+                  <Link href="/Projects" className="hover:underline">
+                    Projects
+                  </Link>
+                </li>
+                <li className="mb-2">
+                  <Link href="/ContactMe" className="hover:underline">
                     Contact
                   </Link>
                 </li>
@@ -39,18 +44,16 @@ export default function Footer() {
 
             {/* Social Media Links */}
             <div className="w-full md:w-1/3 mb-6 md:mb-0">
-              <h2 className="text-xl font-semibold mb-4">Follow Us</h2>
+              <h2 className="text-xl font-semibold mb-4">Follow me</h2>
               <div className="flex space-x-4">
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
-                  <FaFacebook size={24} />
+                
+                <a href="https://github.com/AdeelTahir-SE" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+                  <FaGithub size={24} />
                 </a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
-                  <FaTwitter size={24} />
-                </a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+                <a href="https://www.instagram.com/adeeltahir150/?hl=en" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
                   <FaInstagram size={24} />
                 </a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+                <a href="https://www.linkedin.com/in/adeel-tahir-41ba212b9/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
                   <FaLinkedin size={24} />
                 </a>
               </div>
@@ -58,17 +61,17 @@ export default function Footer() {
 
             {/* Contact Information */}
             <div className="w-full md:w-1/3">
-              <h2 className="text-xl font-semibold mb-4">Contact Us</h2>
-              <p className="mb-2">1234 Street Name</p>
-              <p className="mb-2">City, State, 12345</p>
-              <p className="mb-2">Email: info@example.com</p>
-              <p>Phone: (123) 456-7890</p>
+              <h2 className="text-xl font-semibold mb-4">Contact me</h2>
+              <p className="mb-2">Islamabad, Nust</p>
+              <p className="mb-2">Email: adeeltahir6a@gmail.com</p>
+              <p>Phone: 03001124769</p>
+              <p>Phone: 03334062285</p>
             </div>
           </div>
 
           {/* Copyright */}
           <div className="mt-8 text-center border-t border-gray-700 pt-4">
-            <p>&copy; 2024 Your Company. All rights reserved.</p>
+            <p>&copy; 2024 . All rights reserved.</p>
           </div>
         </div>
       </footer>

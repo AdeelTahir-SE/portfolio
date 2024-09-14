@@ -1,39 +1,44 @@
 // pages/contact.js
 "use client"
 import React from 'react';
+import { useState } from 'react';
 
-
-async function handleFormSubmit(event) {
-    event.preventDefault(); // Prevent the default form submission
-  
-    const form = event.target;
-    const formData = new FormData(form);
-  
-    try {
-      // Convert FormData to JSON
-      const data = Object.fromEntries(formData.entries());
-  
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-  
-      if (res.ok) {
-        alert('Message sent');
-        form.reset(); // Reset the form after successful submission
-      } else {
-        alert('Failed to send message');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('An error occurred while sending the message.');
-    }
-  }
 
 export default function ContactMe() {
+    const  [loader,setLoader]=useState(false);
+    async function handleFormSubmit(event) {
+        event.preventDefault(); // Prevent the default form submission
+      setLoader(true)
+        const form = event.target;
+        const formData = new FormData(form);
+      
+        try {
+          // Convert FormData to JSON
+          const data = Object.fromEntries(formData.entries());
+      
+          const res = await fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+          });
+      
+          if (res.ok) {
+            setLoader(false)
+            alert('Message sent');
+    
+            form.reset(); // Reset the form after successful submission
+          } else {
+            setLoader(false)
+    
+            alert('Failed to send message');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('An error occurred while sending the message.');
+        }
+      }
   return (
     <div className="min-h-screen bg-purple-50 flex items-center justify-center dark:bg-slate-900">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md dark:bg-slate-800" >
@@ -75,16 +80,29 @@ export default function ContactMe() {
               required
             ></textarea>
           </div>
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between flex-row">
             <button
               type="submit"
               className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
               Send
             </button>
+            {loader&&/* From Uiverse.io by yohohopizza */ 
+<div class="flex flex-row gap-2 mt-2 ml-4">
+  <div class="w-4 h-4 rounded-full bg-purple-500 animate-bounce"></div>
+  <div
+    class="w-4 h-4 rounded-full bg-purple-500 animate-bounce [animation-delay:-.3s]"
+  ></div>
+  <div
+    class="w-4 h-4 rounded-full bg-purple-500 animate-bounce [animation-delay:-.5s]"
+  ></div>
+</div>
+}
           </div>
         </form>
+    
       </div>
+    
     </div>
   );
 }

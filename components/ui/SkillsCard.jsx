@@ -10,7 +10,7 @@ import {
   
   export default function SkillsCard({ title, description, img }) {
     return (
-      <Card className="shadow-lg rounded-lg overflow-hidden max-w-44">
+      <Card className="shadow-lg rounded-lg overflow-hidden max-w-44 hover:scale-110 cursor-pointer">
         <CardHeader className="bg-purple-600 text-white p-4">
           <CardTitle className="text-center text-xl font-semibold">{title}</CardTitle>
         </CardHeader>

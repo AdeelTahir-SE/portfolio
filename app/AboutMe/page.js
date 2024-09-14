@@ -40,7 +40,7 @@ export default function AboutMe() {
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
             <h3 className="text-3xl font-extrabold mb-4 text-purple-600">Bio</h3>
             <p className="text-lg">
-              I started my journey in web development a few years ago and have been continuously learning and improving my skills. I enjoy working on challenging projects and collaborating with others to create amazing products. When I'm not coding, I love to read books, play video games, and explore new technologies.
+              I started my journey in web development a few years ago and have been continuously learning and improving my skills. I enjoy working on challenging projects and collaborating with others to create amazing products. When I am not coding, I love to read books, play video games, and explore new technologies.
             </p>
           </div>
 
@@ -72,7 +72,7 @@ export default function AboutMe() {
                 <p className="text-base">Focused on foundational engineering subjects including Mathematics, Physics, and Chemistry.</p>
               </li>
               <li>
-                <div className="font-semibold text-purple-400">Bachelor's Degree in Software Engineering - NUST</div>
+                <div className="font-semibold text-purple-400">Bachelors Degree in Software Engineering - NUST</div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">2023 - 2027 (expected)</div>
                 <p className="text-base">In-depth study of software development, algorithms, data structures, and system design.</p>
               </li>

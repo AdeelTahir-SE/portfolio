@@ -53,7 +53,7 @@ export default function Footer() {
                 <a href="https://www.instagram.com/adeeltahir150/?hl=en" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
                   <FaInstagram size={24} />
                 </a>
-                <a href="https://www.linkedin.com/in/adeel-tahir-41ba212b9/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+                <a href="https://www.linkedin.com/in/adeel-tahir-fullstackdeveoper/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
                   <FaLinkedin size={24} />
                 </a>
               </div>

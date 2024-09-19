@@ -152,8 +152,8 @@ export default function Home() {
           <CarouselPrevious />
           <CarouselNext />
         </Carousel>
-        <div className="grid grid-cols-2 p-12 md:hidden ">
-          {projects.map((project, index) => (
+        <div className="grid grid-cols-1 p-12 md:hidden ">
+          {projects.filter(v=>v.title!=="Todo List API").map((project, index) => (
             <div key={index} className="p-5">
               <Card className="hover:scale-105 cursor-pointer">
                 <CardContent className="flex aspect-square items-center justify-center p-6">

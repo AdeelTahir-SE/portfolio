@@ -72,7 +72,7 @@ export default function AboutMe() {
 <ul className="list-none list-inside space-y-4 text-lg">
   <li>
     <div className="font-semibold text-purple-400">
-      "Kryptosphere" React App - Client Project
+      &quot;Kryptosphere &quot; React App - Client Project
     </div>
     <div className="text-sm text-gray-600 dark:text-gray-400">
       Completed in 2024

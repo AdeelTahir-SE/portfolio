@@ -1,4 +1,3 @@
-// pages/services.js
 import Head from 'next/head';
 
 export default function Services() {
@@ -19,11 +18,19 @@ export default function Services() {
             </p>
           </div>
           <div className="mt-10">
+            
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              
               <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 transform transition-transform duration-300 hover:scale-105 hover:bg-gray-200 dark:hover:bg-gray-700 hover:cursor-pointer">
                 <h3 className="text-xl font-semibold text-purple-900 dark:text-purple-400">React App</h3>
                 <p className="mt-4 text-gray-600 dark:text-gray-300">
                   Building responsive and modern React applications using the latest technologies.
+                </p>
+              </div>
+              <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 transform transition-transform duration-300 hover:scale-105 hover:bg-gray-200 dark:hover:bg-gray-700 hover:cursor-pointer">
+                <h3 className="text-xl font-semibold text-purple-900 dark:text-purple-400">Next.js App</h3>
+                <p className="mt-4 text-gray-600 dark:text-gray-300">
+                  Developing high-performance and SEO-friendly applications using Next.js.
                 </p>
               </div>
               <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 transform transition-transform duration-300 hover:scale-105 hover:bg-gray-200 dark:hover:bg-gray-700 hover:cursor-pointer">
@@ -56,6 +63,7 @@ export default function Services() {
                   Designing and implementing RESTful APIs for seamless integration and data exchange.
                 </p>
               </div>
+             
             </div>
           </div>
         </div>

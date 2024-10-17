@@ -15,7 +15,6 @@ console.log(body)
       },
     });
 
-    // Set up email data
     let mailOptions = {
       from: body.email, // Sender address (from the form input)
       to: process.env.MY_EMAIL, // List of receivers
@@ -23,15 +22,12 @@ console.log(body)
       text: `Name: ${body.name}\nEmail: ${body.email}\nMessage: ${body.message}`, // Plain text body
     };
 
-    // Send mail with the defined transport object
     await transporter.sendMail(mailOptions);
 
-    // Return success response
     return NextResponse.json({ message: 'Form submitted successfully' }, { status: 200 });
   } catch (error) {
     console.error('Error sending email:', error);
 
-    // Return error response
     return NextResponse.json({ message: 'Failed to send email' }, { status: 500 });
   }
 }

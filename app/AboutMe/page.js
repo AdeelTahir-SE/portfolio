@@ -235,7 +235,6 @@ export default function AboutMe() {
                 <div className="text-sm text-gray-600 dark:text-gray-400">
                   Completed in 2024
                 </div>
-                <p className="text-base">
                   Covered essential topics such as:
                   <ul className="list-disc list-inside">
                     <li> Time & Space Complexity</li>
@@ -258,7 +257,7 @@ export default function AboutMe() {
                     <li> Graphs (BFS/DFS, Dijkstras Shortest Path)</li>
                     <li> Map, LRU Cache</li>
                   </ul>
-                </p>
+                
               </li>
             </ul>
           </div>

@@ -1,13 +1,14 @@
-import Link from 'next/link';
-import {  FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
-
+import Link from "next/link";
+import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
+// Assuming you have SVG components for Upwork and Fiverr
+import upwork from "@/public/upwork.png";
+import fiverr from "@/public/fiverr.png";
+import Image from "next/image";
 export default function Footer() {
   return (
     <>
-    
-
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-8 realtive bottom-0 w-full">
+      <footer className="bg-gray-800 text-white py-8 relative bottom-0 w-full">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-between">
             {/* Navigation Links */}
@@ -46,15 +47,55 @@ export default function Footer() {
             <div className="w-full md:w-1/3 mb-6 md:mb-0">
               <h2 className="text-xl font-semibold mb-4">Follow me</h2>
               <div className="flex space-x-4">
-                
-                <a href="https://github.com/AdeelTahir-SE" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+                <a
+                  href="https://github.com/AdeelTahir-SE"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-400"
+                >
                   <FaGithub size={24} />
                 </a>
-                <a href="https://www.instagram.com/adeeltahir150/?hl=en" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+                <a
+                  href="https://www.instagram.com/adeeltahir150/?hl=en"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-400"
+                >
                   <FaInstagram size={24} />
                 </a>
-                <a href="https://www.linkedin.com/in/adeel-tahir-fullstackdeveoper/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+                <a
+                  href="https://www.linkedin.com/in/adeel-tahir-fullstackdeveoper/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-400"
+                >
                   <FaLinkedin size={24} />
+                </a>
+                <a
+                  href="https://www.upwork.com/freelancers/adeelt14?mp_source=share"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-400"
+                >
+                  <Image
+                    src={upwork}
+                    width={24}
+                    height={24}
+                    className="filter invert" // Add filter here
+                  />
+                </a>
+                <a
+                  href="https://www.fiverr.com/s/vvE6leq"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-400"
+                >
+                  <Image
+                    src={fiverr}
+                    width={24}
+                    height={24}
+                    className="filter invert" // Add filter here
+                  />
                 </a>
               </div>
             </div>

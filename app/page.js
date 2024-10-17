@@ -24,7 +24,7 @@ import javascript from "@/components/ui/javascript.svg";
 import certificate2 from "@/public/Certificate2.png";
 import certificate1 from "@/public/Certificate1.png";
 import certificate3 from "@/public/Certificate3.png";
-import certificate4 from "@/public/Certificate4.png";
+import certificate4 from "@/public/certificate4.png";
 import {
   Carousel,
   CarouselContent,

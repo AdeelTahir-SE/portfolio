@@ -238,25 +238,25 @@ export default function AboutMe() {
                 <p className="text-base">
                   Covered essential topics such as:
                   <ul className="list-disc list-inside">
-                    <li>✅ Time & Space Complexity</li>
+                    <li> Time & Space Complexity</li>
                     <li>
-                      ✅ Arrays (Linear Search, Binary Search, Two Crystal
+                       Arrays (Linear Search, Binary Search, Two Crystal
                       Balls)
                     </li>
                     <li>
-                      ✅ Lists (Singly & Doubly Linked Lists, Queue, Stack,
+                       Lists (Singly & Doubly Linked Lists, Queue, Stack,
                       ArrayList, Ring Buffers)
                     </li>
-                    <li>✅ Recursion & Maze Solving</li>
-                    <li>✅ QuickSort & Sorting Algorithms</li>
+                    <li> Recursion & Maze Solving</li>
+                    <li> QuickSort & Sorting Algorithms</li>
                     <li>
-                      ✅ Trees (Traversals: Pre-Order, In-Order, Post-Order,
+                       Trees (Traversals: Pre-Order, In-Order, Post-Order,
                       BFS)
                     </li>
-                    <li>✅ Binary Search Trees & Comparing Binary Trees</li>
-                    <li>✅ Heaps & Tries</li>
-                    <li>✅ Graphs (BFS/DFS, Dijkstra's Shortest Path)</li>
-                    <li>✅ Map, LRU Cache</li>
+                    <li> Binary Search Trees & Comparing Binary Trees</li>
+                    <li> Heaps & Tries</li>
+                    <li> Graphs (BFS/DFS, Dijkstras Shortest Path)</li>
+                    <li> Map, LRU Cache</li>
                   </ul>
                 </p>
               </li>

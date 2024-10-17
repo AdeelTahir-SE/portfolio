@@ -24,6 +24,8 @@ import javascript from "@/components/ui/javascript.svg";
 import certificate2 from "@/public/Certificate2.png";
 import certificate1 from "@/public/Certificate1.png";
 import certificate3 from "@/public/Certificate3.png";
+import certificate4 from "@/public/certificate4.png";
+
 import {
   Carousel,
   CarouselContent,
@@ -297,7 +299,7 @@ export default function Home() {
     {/* For smaller screens, display certificates vertically */}
     <div className="block md:hidden">
       <div className="flex flex-col items-center space-y-4">
-        {[certificate1, certificate2, certificate3].map((v, index) => (
+        {[certificate1, certificate2, certificate3,certificate4].map((v, index) => (
           <div key={index} className="w-80 sm:w-80 md:w-72 lg:w-80 xl:w-96 transition-all duration-300 transform hover:scale-105 cursor-pointer">
             <div className="p-2 md:p-4">
               <Card className="hover:scale-105 transition-transform shadow-lg cursor-pointer">

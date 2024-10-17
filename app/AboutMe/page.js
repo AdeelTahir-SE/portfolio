@@ -51,60 +51,104 @@ export default function AboutMe() {
           </div>
 
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-  <h3 className="text-3xl font-extrabold mb-4 text-purple-400">
-    Bio
-  </h3>
-  <p className="text-lg text-gray-800 dark:text-gray-200">
-    I am <span className="font-semibold text-purple-400">passionate about web development</span>, focusing on creating <span className="font-semibold text-purple-400">innovative</span> and <span className="font-semibold text-purple-400">high-quality web applications</span>. My expertise spans both <span className="font-semibold text-purple-400">front-end</span> and <span className="font-semibold text-purple-400">back-end development</span>, where I strive to deliver <span className="font-semibold text-purple-400">effective solutions</span> and continuously <span className="font-semibold text-purple-400">enhance my skills</span>.
-  </p>
-  <p className="text-lg text-gray-800 dark:text-gray-200 mt-4">
-    Beyond my professional endeavors, I have a keen interest in <span className="font-semibold text-purple-400">exploring emerging technologies</span>, <span className="font-semibold text-purple-400">reading industry literature</span>. This commitment to <span className="font-semibold text-purple-400">personal and professional growth</span> drives me to remain at the <span className="font-semibold text-purple-400">cutting edge</span> of the tech industry.
-  </p>
-</div>
-
-
-
+            <h3 className="text-3xl font-extrabold mb-4 text-purple-400">
+              Bio
+            </h3>
+            <p className="text-lg text-gray-800 dark:text-gray-200">
+              I am{" "}
+              <span className="font-semibold text-purple-400">
+                passionate about web development
+              </span>
+              , focusing on creating{" "}
+              <span className="font-semibold text-purple-400">innovative</span>{" "}
+              and{" "}
+              <span className="font-semibold text-purple-400">
+                high-quality web applications
+              </span>
+              . My expertise spans both{" "}
+              <span className="font-semibold text-purple-400">front-end</span>{" "}
+              and{" "}
+              <span className="font-semibold text-purple-400">
+                back-end development
+              </span>
+              , where I strive to deliver{" "}
+              <span className="font-semibold text-purple-400">
+                effective solutions
+              </span>{" "}
+              and continuously{" "}
+              <span className="font-semibold text-purple-400">
+                enhance my skills
+              </span>
+              .
+            </p>
+            <p className="text-lg text-gray-800 dark:text-gray-200 mt-4">
+              Beyond my professional endeavors, I have a keen interest in{" "}
+              <span className="font-semibold text-purple-400">
+                exploring emerging technologies
+              </span>
+              ,{" "}
+              <span className="font-semibold text-purple-400">
+                reading industry literature
+              </span>
+              . This commitment to{" "}
+              <span className="font-semibold text-purple-400">
+                personal and professional growth
+              </span>{" "}
+              drives me to remain at the{" "}
+              <span className="font-semibold text-purple-400">
+                cutting edge
+              </span>{" "}
+              of the tech industry.
+            </p>
+          </div>
 
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-          <h3 className="text-3xl font-extrabold mb-4 text-purple-600">
-  Experience
-</h3>
-<ul className="list-none list-inside space-y-4 text-lg">
-  <li>
-    <div className="font-semibold text-purple-400">
-      &quot;Kryptosphere &quot; React App - Client Project
-    </div>
-    <div className="text-sm text-gray-600 dark:text-gray-400">
-      Completed in 2024
-    </div>
-    <p className="text-base">
-      Developed a comprehensive React application tailored to client specifications, showcasing expertise in modern front-end development practices and client-oriented solutions.
-    </p>
-  </li>
-  <li>
-    <div className="font-semibold text-purple-400">
-      Web Development Projects
-    </div>
-    <div className="text-sm text-gray-600 dark:text-gray-400">
-      Ongoing
-    </div>
-    <p className="text-base">
-      Engaged in various web development projects, focusing on both front-end and back-end technologies. Leveraged frameworks such as React and Node.js to build scalable and efficient web applications.
-    </p>
-  </li>
-  <li>
-    <div className="font-semibold text-purple-400">
-      Continuous Learning and Professional Development
-    </div>
-    <div className="text-sm text-gray-600 dark:text-gray-400">
-      Ongoing
-    </div>
-    <p className="text-base">
-      Committed to staying current with industry trends through continuous learning. Actively experimenting with emerging technologies, contributing to open-source projects, and applying best practices in web development.
-    </p>
-  </li>
-</ul>
-
+            <h3 className="text-3xl font-extrabold mb-4 text-purple-600">
+              Experience
+            </h3>
+            <ul className="list-none list-inside space-y-4 text-lg">
+              <li>
+                <div className="font-semibold text-purple-400">
+                  &quot;Kryptosphere &quot; React App - Client Project
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  Completed in 2024
+                </div>
+                <p className="text-base">
+                  Developed a comprehensive React application tailored to client
+                  specifications, showcasing expertise in modern front-end
+                  development practices and client-oriented solutions.
+                </p>
+              </li>
+              <li>
+                <div className="font-semibold text-purple-400">
+                  Web Development Projects
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  Ongoing
+                </div>
+                <p className="text-base">
+                  Engaged in various web development projects, focusing on both
+                  front-end and back-end technologies. Leveraged frameworks such
+                  as React and Node.js to build scalable and efficient web
+                  applications.
+                </p>
+              </li>
+              <li>
+                <div className="font-semibold text-purple-400">
+                  Continuous Learning and Professional Development
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  Ongoing
+                </div>
+                <p className="text-base">
+                  Committed to staying current with industry trends through
+                  continuous learning. Actively experimenting with emerging
+                  technologies, contributing to open-source projects, and
+                  applying best practices in web development.
+                </p>
+              </li>
+            </ul>
           </div>
 
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
@@ -125,64 +169,98 @@ export default function AboutMe() {
             <h3 className="text-3xl font-extrabold mb-4 text-purple-600">
               Education
             </h3>
-            <ul className="list-none list-inside  text-lg grid grid-cols-1 md:grid-cols-2 gap-4">
-  <li>
-    <div className="font-semibold text-purple-400">
-      F.Sc Pre-Engineering - Punjab College
-    </div>
-    <div className="text-sm text-gray-600 dark:text-gray-400">
-      2019 - 2021
-    </div>
-    <p className="text-base">
-      Focused on foundational engineering subjects including Mathematics, Physics, and Chemistry.
-    </p>
-  </li>
-  <li>
-    <div className="font-semibold text-purple-400">
-      Bachelors Degree in Software Engineering - NUST
-    </div>
-    <div className="text-sm text-gray-600 dark:text-gray-400">
-      2023 - 2027 (expected)
-    </div>
-    <p className="text-base">
-      In-depth study of software development, algorithms, data structures, and system design.
-    </p>
-  </li>
-  <li>
-    <div className="font-semibold text-purple-400">
-      Full Stack Developer v3 - Frontend Masters
-    </div>
-    <div className="text-sm text-gray-600 dark:text-gray-400">
-      Completed in 2024
-    </div>
-    <p className="text-base">
-      Comprehensive training on full stack development including frontend and backend technologies.
-    </p>
-  </li>
-  <li>
-    <div className="font-semibold text-purple-400">
-      Node.js API Design - Frontend Masters
-    </div>
-    <div className="text-sm text-gray-600 dark:text-gray-400">
-      Completed in 2024
-    </div>
-    <p className="text-base">
-      Focused on designing and building robust APIs using Node.js.
-    </p>
-  </li>
-  <li>
-    <div className="font-semibold text-purple-400">
-      Node.js v3 - Frontend Masters
-    </div>
-    <div className="text-sm text-gray-600 dark:text-gray-400">
-      Completed in 2024
-    </div>
-    <p className="text-base">
-      Advanced concepts and best practices in Node.js development.
-    </p>
-  </li>
-</ul>
-
+            <ul className="list-none list-inside text-lg grid grid-cols-1 md:grid-cols-2 gap-4">
+              <li>
+                <div className="font-semibold text-purple-400">
+                  F.Sc Pre-Engineering - Punjab College
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  2019 - 2021
+                </div>
+                <p className="text-base">
+                  Focused on foundational engineering subjects including
+                  Mathematics, Physics, and Chemistry.
+                </p>
+              </li>
+              <li>
+                <div className="font-semibold text-purple-400">
+                  Bachelors Degree in Software Engineering - NUST
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  2023 - 2027 (expected)
+                </div>
+                <p className="text-base">
+                  In-depth study of software development, algorithms, data
+                  structures, and system design.
+                </p>
+              </li>
+              <li>
+                <div className="font-semibold text-purple-400">
+                  Full Stack Developer v3 - Frontend Masters
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  Completed in 2024
+                </div>
+                <p className="text-base">
+                  Comprehensive training on full stack development including
+                  frontend and backend technologies.
+                </p>
+              </li>
+              <li>
+                <div className="font-semibold text-purple-400">
+                  Node.js API Design - Frontend Masters
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  Completed in 2024
+                </div>
+                <p className="text-base">
+                  Focused on designing and building robust APIs using Node.js.
+                </p>
+              </li>
+              <li>
+                <div className="font-semibold text-purple-400">
+                  Node.js v3 - Frontend Masters
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  Completed in 2024
+                </div>
+                <p className="text-base">
+                  Advanced concepts and best practices in Node.js development.
+                </p>
+              </li>
+              <li>
+                <div className="font-semibold text-purple-400">
+                  Algorithms Course - Primegen
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  Completed in 2024
+                </div>
+                <p className="text-base">
+                  Covered essential topics such as:
+                  <ul className="list-disc list-inside">
+                    <li>✅ Time & Space Complexity</li>
+                    <li>
+                      ✅ Arrays (Linear Search, Binary Search, Two Crystal
+                      Balls)
+                    </li>
+                    <li>
+                      ✅ Lists (Singly & Doubly Linked Lists, Queue, Stack,
+                      ArrayList, Ring Buffers)
+                    </li>
+                    <li>✅ Recursion & Maze Solving</li>
+                    <li>✅ QuickSort & Sorting Algorithms</li>
+                    <li>
+                      ✅ Trees (Traversals: Pre-Order, In-Order, Post-Order,
+                      BFS)
+                    </li>
+                    <li>✅ Binary Search Trees & Comparing Binary Trees</li>
+                    <li>✅ Heaps & Tries</li>
+                    <li>✅ Graphs (BFS/DFS, Dijkstra's Shortest Path)</li>
+                    <li>✅ Map, LRU Cache</li>
+                  </ul>
+                </p>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

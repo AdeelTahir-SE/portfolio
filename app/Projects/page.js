@@ -2,6 +2,12 @@ import React from 'react';
 
 const projects = [
   {
+    title: 'FilmFlex',
+    description: 'FilmFlex allows movie reservations for cinema. This application is built using Next.js with a focus on API development and design, utilizing Shadcn UI for a sleek interface.',
+    link: 'https://github.com/AdeelTahir-SE/FilmFlex',
+    techs: ['Next.js', 'API Development', 'Shadcn UI', 'React']
+  },
+  {
     title: 'Restaurant application',
     description: 'Tools Used in Foodie Haven 🛠️  Foodie Haven utilizes a stack of powerful technologies to deliver a seamless user experience:  MongoDB: Provides a scalable NoSQL database solution for storing and managing food items, user data, and orders.  Express.js: Serves as the backend web applica',
     link: 'https://github.com/AdeelTahir-SE/Restaurant-Application',

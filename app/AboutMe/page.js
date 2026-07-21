@@ -1,22 +1,10 @@
-import Image from "next/image";
-import profilePic from "@/public/Profilepicture.png";
-
 export default function AboutMe() {
   return (
     <div className="min-h-screen bg-white text-black pt-24 flex flex-col items-center" style={{ fontFamily: 'var(--font-main)' }}>
       <div className="container mx-auto p-4 md:p-8 max-w-6xl">
         
         {/* Hero Area */}
-        <div className="flex flex-col md:flex-row items-center md:items-start mb-16 gap-8">
-          <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-[#c9f31d] shadow-lg shrink-0">
-            <Image
-              src={profilePic}
-              alt="Profile Picture"
-              width={256}
-              height={256}
-              className="object-cover w-full h-full"
-            />
-          </div>
+        <div className="flex flex-col items-center md:items-start mb-16 gap-8">
           <div className="text-center md:text-left flex flex-col justify-center h-full pt-4">
             <h1 className="text-5xl md:text-6xl font-extrabold uppercase mb-2">Adeel Tahir</h1>
             <h2 className="text-3xl uppercase font-bold text-[#c9f31d] mb-6 tracking-wide">

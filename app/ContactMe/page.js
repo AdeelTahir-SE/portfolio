@@ -43,10 +43,10 @@ export default function ContactMe() {
         {/* Left Side: Contact Info */}
         <div className="space-y-8 mt-4">
           <h2 className="section-title text-5xl md:text-6xl font-extrabold uppercase leading-tight">
-            Let's Work<br/><span className="text-black bg-[#c9f31d] px-2">Together</span>
+            Let&apos;s Work<br/><span className="text-black bg-[#c9f31d] px-2">Together</span>
           </h2>
           <p className="text-xl text-gray-600 mb-8" style={{ fontFamily: 'var(--font-mono)' }}>
-            I am always open to discussing product design work or partnership opportunities. Let's make something amazing.
+            I am always open to discussing product design work or partnership opportunities. Let&apos;s make something amazing.
           </p>
           
           <div className="space-y-6 text-lg">
@@ -60,7 +60,7 @@ export default function ContactMe() {
             <div className="flex flex-col">
               <span className="font-bold uppercase text-gray-400 text-sm mb-1 tracking-wider">Phone</span>
               <span className="font-bold text-2xl">
-                +92 300 1124769
+                +92 333 4062285
               </span>
             </div>
             

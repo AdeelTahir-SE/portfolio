@@ -3,10 +3,8 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { Github, Linkedin, Instagram } from 'lucide-react';
 import { Code2 } from 'lucide-react';
-import upwork from '@/public/upwork.png';
-import fiverr from '@/public/fiverr.png';
 
 export default function Footer() {
   return (
@@ -30,20 +28,20 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-4">
               <a href="https://github.com/adeeltahir" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-[#2a2a2a] flex items-center justify-center text-white hover:bg-[#c9f31d] hover:text-[#1a1a1a] transition-all">
-                <FaGithub size={18} />
+                <Github size={18} />
               </a>
               <a href="https://linkedin.com/in/adeeltahir" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-[#2a2a2a] flex items-center justify-center text-white hover:bg-[#c9f31d] hover:text-[#1a1a1a] transition-all">
-                <FaLinkedin size={18} />
+                <Linkedin size={18} />
               </a>
               <a href="https://instagram.com/adeeltahir" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-[#2a2a2a] flex items-center justify-center text-white hover:bg-[#c9f31d] hover:text-[#1a1a1a] transition-all">
-                <FaInstagram size={18} />
+                <Instagram size={18} />
               </a>
-              <a href="https://upwork.com" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-[#2a2a2a] flex items-center justify-center hover:bg-[#c9f31d] transition-all overflow-hidden">
+              {/* <a href="https://upwork.com" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-[#2a2a2a] flex items-center justify-center hover:bg-[#c9f31d] transition-all overflow-hidden">
                 <Image src={upwork} alt="Upwork" width={24} height={24} className="object-contain" />
               </a>
               <a href="https://fiverr.com" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-[#2a2a2a] flex items-center justify-center hover:bg-[#c9f31d] transition-all overflow-hidden">
                 <Image src={fiverr} alt="Fiverr" width={24} height={24} className="object-contain" />
-              </a>
+              </a> */}
             </div>
           </div>
 

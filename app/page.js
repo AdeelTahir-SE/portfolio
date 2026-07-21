@@ -4,19 +4,36 @@ import Typed from 'typed.js';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { 
-  FaGithub, 
-  FaLinkedin, 
-  FaTwitter, 
-  FaEnvelope, 
-  FaPhone, 
-  FaMapMarkerAlt, 
-  FaArrowRight, 
-  FaCheck,
-  FaBolt,
-  FaCode,
-  FaMobileAlt,
-  FaTools
-} from 'react-icons/fa';
+  Github, 
+  Linkedin, 
+  Twitter, 
+  Mail, 
+  Phone, 
+  MapPin, 
+  ArrowRight, 
+  Check,
+  Zap,
+  Code,
+  Smartphone,
+  Wrench,
+  FileCode,
+  Paintbrush,
+  Braces,
+  Atom,
+  Triangle,
+  Wind,
+  Hexagon,
+  Server,
+  Database,
+  GitBranch,
+  Package,
+  FileType,
+  Container,
+  Workflow,
+  Radio,
+  Activity,
+  ListTodo
+} from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -130,7 +147,7 @@ export default function Home() {
           
           <div className="flex flex-wrap gap-4 mb-10">
             <a href="#projects" className="btn-outline flex items-center gap-2 border-2 border-gray-900 px-6 py-3 font-bold hover:bg-[#c9f31d] hover:border-[#c9f31d] transition-colors">
-              VIEW MY WORK <FaArrowRight />
+              VIEW MY WORK <ArrowRight size={16} />
             </a>
             <a href="#contact" className="btn-outline flex items-center gap-2 border-2 border-gray-900 px-6 py-3 font-bold hover:bg-gray-900 hover:text-white transition-colors">
               LET&apos;S CONNECT ↗
@@ -140,9 +157,9 @@ export default function Home() {
           <div className="flex items-center gap-4">
             <span className="font-bold text-sm uppercase tracking-wider">FIND ME ON</span>
             <div className="flex gap-4">
-              <a href="#" className="text-2xl text-gray-600 hover:text-gray-900 transition-colors"><FaGithub /></a>
-              <a href="#" className="text-2xl text-gray-600 hover:text-[#0077b5] transition-colors"><FaLinkedin /></a>
-              <a href="#" className="text-2xl text-gray-600 hover:text-[#1da1f2] transition-colors"><FaTwitter /></a>
+              <a href="#" className="text-2xl text-gray-600 hover:text-gray-900 transition-colors"><Github size={24} /></a>
+              <a href="#" className="text-2xl text-gray-600 hover:text-[#0077b5] transition-colors"><Linkedin size={24} /></a>
+              <a href="#" className="text-2xl text-gray-600 hover:text-[#1da1f2] transition-colors"><Twitter size={24} /></a>
             </div>
           </div>
         </div>
@@ -167,22 +184,22 @@ export default function Home() {
       <section ref={featureBarRef} className="w-full bg-[#1a1a1a] text-white py-12 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="flex flex-col gap-3">
-            <FaBolt className="text-[#c9f31d] text-3xl" />
+            <Zap size={28} className="text-[#c9f31d]" />
             <h3 className="font-bold text-xl">PERFORMANCE</h3>
             <p className="text-gray-400 text-sm">Built with Next.js for blazing-fast performance.</p>
           </div>
           <div className="flex flex-col gap-3">
-            <FaCode className="text-[#c9f31d] text-3xl" />
+            <Code size={28} className="text-[#c9f31d]" />
             <h3 className="font-bold text-xl">CLEAN CODE</h3>
             <p className="text-gray-400 text-sm">Writing maintainable, scalable and efficient code.</p>
           </div>
           <div className="flex flex-col gap-3">
-            <FaMobileAlt className="text-[#c9f31d] text-3xl" />
+            <Smartphone size={28} className="text-[#c9f31d]" />
             <h3 className="font-bold text-xl">RESPONSIVE</h3>
             <p className="text-gray-400 text-sm">Creating seamless experience across all devices.</p>
           </div>
           <div className="flex flex-col gap-3">
-            <FaTools className="text-[#c9f31d] text-3xl" />
+            <Wrench size={28} className="text-[#c9f31d]" />
             <h3 className="font-bold text-xl">MODERN STACK</h3>
             <p className="text-gray-400 text-sm">Using the latest tools to build future-ready products.</p>
           </div>
@@ -190,68 +207,94 @@ export default function Home() {
       </section>
 
       {/* 3. MY SKILLS SECTION */}
-      <section ref={skillsRef} className="w-full max-w-7xl mx-auto px-6 py-24 bg-white">
+      <section id="skills" ref={skillsRef} className="w-full max-w-7xl mx-auto px-6 py-24 bg-white">
         <h2 className="section-title text-4xl font-black text-center mb-16 font-main tracking-tight uppercase">MY SKILLS</h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* FRONTEND */}
-          <div className="p-8 border-2 border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-            <h3 className="font-bold text-2xl mb-6 border-b-4 border-[#c9f31d] inline-block pb-1">FRONTEND</h3>
-            <div className="space-y-4">
+          <div className="p-6 border-2 border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+            <h3 className="font-bold text-xl mb-5 border-b-4 border-[#c9f31d] inline-block pb-1">FRONTEND</h3>
+            <div className="grid grid-cols-2 gap-3">
               {[
-                { name: 'HTML', p: '95%' }, { name: 'CSS', p: '90%' },
-                { name: 'JavaScript', p: '90%' }, { name: 'React', p: '90%' },
-                { name: 'Next.js', p: '90%' }, { name: 'Tailwind', p: '80%' }
+                { name: 'HTML', Icon: FileCode },
+                { name: 'CSS', Icon: Paintbrush },
+                { name: 'JavaScript', Icon: Braces },
+                { name: 'TypeScript', Icon: FileType },
+                { name: 'React', Icon: Atom },
+                { name: 'Next.js', Icon: Triangle },
+                { name: 'Tailwind', Icon: Wind }
               ].map(s => (
-                <div key={s.name}>
-                  <div className="flex justify-between mb-1 font-mono text-sm font-bold">
-                    <span>{s.name}</span><span>{s.p}</span>
+                <div key={s.name} className="flex items-center gap-2 p-2.5 rounded-lg border border-gray-100 hover:border-[#c9f31d] hover:bg-[#c9f31d08] transition-all group">
+                  <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-md bg-gray-50 group-hover:bg-[#c9f31d] group-hover:text-[#1a1a1a] transition-colors text-gray-600">
+                    <s.Icon size={18} />
                   </div>
-                  <div className="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
-                    <div className="bg-[#c9f31d] h-2 rounded-full" style={{ width: s.p }}></div>
-                  </div>
+                  <span className="font-mono text-xs font-bold truncate">{s.name}</span>
                 </div>
               ))}
             </div>
           </div>
           
           {/* BACKEND */}
-          <div className="p-8 border-2 border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-            <h3 className="font-bold text-2xl mb-6 border-b-4 border-[#c9f31d] inline-block pb-1">BACKEND</h3>
-            <div className="space-y-4">
+          <div className="p-6 border-2 border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+            <h3 className="font-bold text-xl mb-5 border-b-4 border-[#c9f31d] inline-block pb-1">BACKEND</h3>
+            <div className="grid grid-cols-2 gap-3">
               {[
-                { name: 'Node.js', p: '90%' }, { name: 'Express', p: '90%' },
-                { name: 'MongoDB', p: '85%' }, { name: 'Firebase', p: '80%' },
-                { name: 'Supabase', p: '80%' }
+                { name: 'Node.js', Icon: Hexagon },
+                { name: 'Express', Icon: Server },
+                { name: 'FastAPI', Icon: Zap },
+                { name: 'Flask', Icon: Code },
+                { name: 'Rust', Icon: Wrench },
+                { name: 'Axum', Icon: Activity },
+                { name: 'MongoDB', Icon: Database },
+                { name: 'PostgreSQL', Icon: Database },
+                { name: 'MySQL', Icon: Database },
+                { name: 'Redis', Icon: Zap }
               ].map(s => (
-                <div key={s.name}>
-                  <div className="flex justify-between mb-1 font-mono text-sm font-bold">
-                    <span>{s.name}</span><span>{s.p}</span>
+                <div key={s.name} className="flex items-center gap-2 p-2.5 rounded-lg border border-gray-100 hover:border-[#c9f31d] hover:bg-[#c9f31d08] transition-all group">
+                  <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-md bg-gray-50 group-hover:bg-[#c9f31d] group-hover:text-[#1a1a1a] transition-colors text-gray-600">
+                    <s.Icon size={18} />
                   </div>
-                  <div className="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
-                    <div className="bg-[#c9f31d] h-2 rounded-full" style={{ width: s.p }}></div>
+                  <span className="font-mono text-xs font-bold truncate">{s.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* MESSAGE QUEUES & STREAMING */}
+          <div className="p-6 border-2 border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+            <h3 className="font-bold text-xl mb-5 border-b-4 border-[#c9f31d] inline-block pb-1">QUEUES & STREAMING</h3>
+            <div className="grid grid-cols-2 gap-3">
+              {[
+                { name: 'Kafka', Icon: Radio },
+                { name: 'RabbitMQ', Icon: Workflow },
+                { name: 'Flink', Icon: Activity },
+                { name: 'BullMQ', Icon: ListTodo }
+              ].map(s => (
+                <div key={s.name} className="flex items-center gap-2 p-2.5 rounded-lg border border-gray-100 hover:border-[#c9f31d] hover:bg-[#c9f31d08] transition-all group">
+                  <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-md bg-gray-50 group-hover:bg-[#c9f31d] group-hover:text-[#1a1a1a] transition-colors text-gray-600">
+                    <s.Icon size={18} />
                   </div>
+                  <span className="font-mono text-xs font-bold truncate">{s.name}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* TOOLS */}
-          <div className="p-8 border-2 border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-            <h3 className="font-bold text-2xl mb-6 border-b-4 border-[#c9f31d] inline-block pb-1">TOOLS</h3>
-            <div className="space-y-4">
+          <div className="p-6 border-2 border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+            <h3 className="font-bold text-xl mb-5 border-b-4 border-[#c9f31d] inline-block pb-1">TOOLS</h3>
+            <div className="grid grid-cols-2 gap-3">
               {[
-                { name: 'Git', p: '90%' }, { name: 'GitHub', p: '90%' },
-                { name: 'Figma', p: '85%' }, { name: 'VS Code', p: '90%' },
-                { name: 'Docker', p: '80%' }
+                { name: 'Git', Icon: GitBranch },
+                { name: 'npm', Icon: Package },
+                { name: 'Docker', Icon: Container },
+                { name: 'GitHub', Icon: Github }
               ].map(s => (
-                <div key={s.name}>
-                  <div className="flex justify-between mb-1 font-mono text-sm font-bold">
-                    <span>{s.name}</span><span>{s.p}</span>
+                <div key={s.name} className="flex items-center gap-2 p-2.5 rounded-lg border border-gray-100 hover:border-[#c9f31d] hover:bg-[#c9f31d08] transition-all group">
+                  <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-md bg-gray-50 group-hover:bg-[#c9f31d] group-hover:text-[#1a1a1a] transition-colors text-gray-600">
+                    <s.Icon size={18} />
                   </div>
-                  <div className="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
-                    <div className="bg-[#c9f31d] h-2 rounded-full" style={{ width: s.p }}></div>
-                  </div>
+                  <span className="font-mono text-xs font-bold truncate">{s.name}</span>
                 </div>
               ))}
             </div>
@@ -259,7 +302,7 @@ export default function Home() {
         </div>
         <div className="text-center">
           <button className="btn-outline border-2 border-gray-900 px-8 py-3 font-bold hover:bg-gray-900 hover:text-white transition-colors uppercase">
-            VIEW ALL SKILLS <FaArrowRight className="inline ml-2" />
+            VIEW ALL SKILLS <ArrowRight size={16} className="inline ml-2" />
           </button>
         </div>
       </section>
@@ -276,11 +319,11 @@ export default function Home() {
               { t: 'DEPLOYMENT & DEVOPS', d: 'Deploy scalable apps on cloud platforms like AWS, Vercel & more.' }
             ].map((srv, idx) => (
               <div key={idx} className="bg-white p-8 border-2 border-transparent hover:border-[#c9f31d] rounded-xl shadow-sm hover:shadow-lg transition-all group">
-                <FaBolt className="text-[#c9f31d] text-4xl mb-6 group-hover:scale-110 transition-transform" />
+                <Zap size={36} className="text-[#c9f31d] mb-6 group-hover:scale-110 transition-transform" />
                 <h3 className="font-bold text-2xl mb-4 font-main uppercase">{srv.t}</h3>
                 <p className="text-gray-600 mb-6">{srv.d}</p>
                 <a href="#" className="text-[#a4c715] font-bold flex items-center gap-2 hover:text-gray-900 transition-colors uppercase text-sm">
-                  READ MORE <FaArrowRight />
+                  READ MORE <ArrowRight size={14} />
                 </a>
               </div>
             ))}
@@ -315,10 +358,10 @@ export default function Home() {
               </div>
               <div className="flex gap-4">
                 <button className="flex-1 bg-[#c9f31d] text-gray-900 font-bold py-3 rounded hover:bg-[#b0d618] transition-colors flex items-center justify-center gap-2">
-                  LIVE DEMO <FaArrowRight />
+                  LIVE DEMO <ArrowRight size={14} />
                 </button>
                 <button className="flex-1 border-2 border-gray-900 text-gray-900 font-bold py-3 rounded hover:bg-gray-900 hover:text-white transition-colors flex items-center justify-center gap-2">
-                  VIEW CODE <FaGithub />
+                  VIEW CODE <Github size={16} />
                 </button>
               </div>
             </div>
@@ -346,10 +389,10 @@ export default function Home() {
               </div>
               <div className="flex gap-4">
                 <button className="flex-1 bg-[#c9f31d] text-gray-900 font-bold py-3 rounded hover:bg-[#b0d618] transition-colors flex items-center justify-center gap-2">
-                  LIVE DEMO <FaArrowRight />
+                  LIVE DEMO <ArrowRight size={14} />
                 </button>
                 <button className="flex-1 border-2 border-gray-900 text-gray-900 font-bold py-3 rounded hover:bg-gray-900 hover:text-white transition-colors flex items-center justify-center gap-2">
-                  VIEW CODE <FaGithub />
+                  VIEW CODE <Github size={16} />
                 </button>
               </div>
             </div>
@@ -364,7 +407,7 @@ export default function Home() {
               <h4 className="font-bold text-lg mb-2">{proj.title}</h4>
               <p className="text-xs font-mono text-[#8aab13] mb-3">{proj.tech}</p>
               <p className="text-sm text-gray-600 mb-4">{proj.desc}</p>
-              <a href="#" className="text-xs font-bold uppercase flex items-center gap-1 hover:text-[#c9f31d]">View Details <FaArrowRight /></a>
+              <a href="#" className="text-xs font-bold uppercase flex items-center gap-1 hover:text-[#c9f31d]">View Details <ArrowRight size={12} /></a>
             </div>
           ))}
         </div>
@@ -382,7 +425,7 @@ export default function Home() {
           <div className="lg:w-1/3 flex flex-col gap-8">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-gray-100 text-gray-900 rounded-full flex items-center justify-center text-xl shrink-0">
-                <FaEnvelope />
+                <Mail size={20} />
               </div>
               <div>
                 <h4 className="font-bold text-sm text-gray-500 mb-1">EMAIL</h4>
@@ -392,7 +435,7 @@ export default function Home() {
             
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-gray-100 text-gray-900 rounded-full flex items-center justify-center text-xl shrink-0">
-                <FaPhone />
+                <Phone size={20} />
               </div>
               <div>
                 <h4 className="font-bold text-sm text-gray-500 mb-1">PHONE</h4>
@@ -402,7 +445,7 @@ export default function Home() {
 
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-gray-100 text-gray-900 rounded-full flex items-center justify-center text-xl shrink-0">
-                <FaMapMarkerAlt />
+                <MapPin size={20} />
               </div>
               <div>
                 <h4 className="font-bold text-sm text-gray-500 mb-1">LOCATION</h4>
@@ -412,7 +455,7 @@ export default function Home() {
 
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-[#c9f31d] text-gray-900 rounded-full flex items-center justify-center text-xl shrink-0">
-                <FaCheck />
+                <Check size={20} />
               </div>
               <div>
                 <h4 className="font-bold text-sm text-gray-500 mb-1">AVAILABLE</h4>
@@ -471,7 +514,7 @@ export default function Home() {
                 className="bg-[#c9f31d] text-gray-900 font-bold py-4 rounded-lg hover:bg-[#b0d618] transition-colors flex items-center justify-center gap-2 mt-2"
                 disabled={formStatus === 'sending'}
               >
-                {formStatus === 'sending' ? 'SENDING...' : 'SEND MESSAGE'} <FaCheck />
+                {formStatus === 'sending' ? 'SENDING...' : 'SEND MESSAGE'} <Check size={16} />
               </button>
               
               {formStatus === 'success' && <p className="text-green-600 font-bold text-center mt-2">Message sent successfully!</p>}

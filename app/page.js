@@ -53,6 +53,16 @@ export default function Home() {
 
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [formStatus, setFormStatus] = useState('');
+  const [dbProjects, setDbProjects] = useState([]);
+
+  useEffect(() => {
+    fetch('/api/projects')
+      .then(res => res.json())
+      .then(data => {
+        if (data.projects) setDbProjects(data.projects);
+      })
+      .catch(err => console.error(err));
+  }, []);
 
   useEffect(() => {
     // Typed.js initialization
@@ -351,79 +361,31 @@ export default function Home() {
       <section id="projects" ref={projectsRef} className="w-full max-w-7xl mx-auto px-6 py-24 bg-white">
         <h2 className="section-title text-4xl font-black text-center mb-16 font-main tracking-tight uppercase">FEATURED PROJECTS</h2>
         
-        <div className="flex flex-col lg:flex-row gap-8 mb-16">
-          {/* Card 1 */}
-          <div className="flex-1 card-bordered border-2 border-gray-200 rounded-xl overflow-hidden shadow-md group hover:shadow-xl transition-shadow flex flex-col">
-            <div className="h-64 bg-gradient-to-br from-green-400 to-teal-600 relative p-6 flex items-end justify-center">
-               <div className="w-[80%] h-[80%] bg-white rounded-t-lg shadow-2xl relative overflow-hidden flex items-center justify-center border-t-4 border-gray-800">
-                  <span className="text-gray-400 font-bold tracking-widest uppercase">E-Commerce Platform</span>
-               </div>
-            </div>
-            <div className="p-8 flex-1 flex flex-col">
-              <h3 className="text-2xl font-bold mb-3">E-Commerce Platform</h3>
-              <p className="text-gray-600 mb-4 flex-1">
-                Full-featured e-commerce platform with admin dashboard, payments and analytics.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-6">
-                {['React', 'Node.js', 'MongoDB', 'Tailwind'].map(t => (
-                  <span key={t} className="tech-badge bg-gray-100 text-xs font-mono px-3 py-1 rounded-full font-bold">{t}</span>
-                ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {dbProjects.slice(0, 3).map((proj, idx) => (
+            <div key={idx} className="card-bordered border-2 border-gray-200 rounded-xl overflow-hidden shadow-md group hover:shadow-xl transition-shadow flex flex-col bg-white">
+              <div className="h-48 bg-gradient-to-br from-[#c9f31d] to-[#8aab13] relative p-6 flex items-end justify-center">
+                 <div className="w-[90%] h-[80%] bg-white rounded-t-lg shadow-2xl relative overflow-hidden flex items-center justify-center border-t-4 border-gray-800">
+                    <span className="text-gray-400 font-bold tracking-widest uppercase text-center px-4">{proj.title}</span>
+                 </div>
               </div>
-              <div className="text-sm text-gray-500 mb-6">
-                <strong>Features:</strong> User Authentication, Product Management, Stripe Integration, Admin Dashboard.
+              <div className="p-8 flex-1 flex flex-col">
+                <h3 className="text-2xl font-bold mb-3">{proj.title}</h3>
+                <p className="text-gray-600 mb-4 flex-1 text-sm">{proj.desc}</p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {proj.tech.map(t => (
+                    <span key={t} className="tech-badge bg-gray-100 text-[10px] font-mono px-2 py-1 rounded-full font-bold">{t}</span>
+                  ))}
+                </div>
+                <div className="flex gap-4">
+                  <a href={proj.liveUrl} target="_blank" rel="noreferrer" className="flex-1 bg-[#c9f31d] text-gray-900 font-bold py-3 rounded hover:bg-[#b0d618] transition-colors flex items-center justify-center gap-2 text-xs">
+                    LIVE DEMO <ArrowRight size={14} />
+                  </a>
+                  <a href={proj.githubUrl} target="_blank" rel="noreferrer" className="flex-1 border-2 border-gray-900 text-gray-900 font-bold py-3 rounded hover:bg-gray-900 hover:text-white transition-colors flex items-center justify-center gap-2 text-xs">
+                    VIEW CODE <Github size={14} />
+                  </a>
+                </div>
               </div>
-              <div className="flex gap-4">
-                <button className="flex-1 bg-[#c9f31d] text-gray-900 font-bold py-3 rounded hover:bg-[#b0d618] transition-colors flex items-center justify-center gap-2">
-                  LIVE DEMO <ArrowRight size={14} />
-                </button>
-                <button className="flex-1 border-2 border-gray-900 text-gray-900 font-bold py-3 rounded hover:bg-gray-900 hover:text-white transition-colors flex items-center justify-center gap-2">
-                  VIEW CODE <Github size={16} />
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Card 2 */}
-          <div className="flex-1 card-bordered border-2 border-gray-200 rounded-xl overflow-hidden shadow-md group hover:shadow-xl transition-shadow flex flex-col">
-            <div className="h-64 bg-gradient-to-br from-blue-500 to-purple-600 relative p-6 flex items-end justify-center">
-               <div className="w-[80%] h-[80%] bg-white rounded-t-lg shadow-2xl relative overflow-hidden flex items-center justify-center border-t-4 border-gray-800">
-                  <span className="text-gray-400 font-bold tracking-widest uppercase">Task Management App</span>
-               </div>
-            </div>
-            <div className="p-8 flex-1 flex flex-col">
-              <h3 className="text-2xl font-bold mb-3">Task Management App</h3>
-              <p className="text-gray-600 mb-4 flex-1">
-                Collaborative task management platform with real-time updates and analytics.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-6">
-                {['Next.js', 'TypeScript', 'Firebase', 'Tailwind'].map(t => (
-                  <span key={t} className="tech-badge bg-gray-100 text-xs font-mono px-3 py-1 rounded-full font-bold">{t}</span>
-                ))}
-              </div>
-              <div className="text-sm text-gray-500 mb-6">
-                <strong>Features:</strong> Real-time Updates, Team Collaboration, Kanban Board, Analytics Dashboard.
-              </div>
-              <div className="flex gap-4">
-                <button className="flex-1 bg-[#c9f31d] text-gray-900 font-bold py-3 rounded hover:bg-[#b0d618] transition-colors flex items-center justify-center gap-2">
-                  LIVE DEMO <ArrowRight size={14} />
-                </button>
-                <button className="flex-1 border-2 border-gray-900 text-gray-900 font-bold py-3 rounded hover:bg-gray-900 hover:text-white transition-colors flex items-center justify-center gap-2">
-                  VIEW CODE <Github size={16} />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Other Existing Projects Grid */}
-        <h3 className="text-2xl font-bold mb-8 text-center uppercase tracking-wider">Other Projects</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {oldProjects.map((proj, idx) => (
-            <div key={idx} className="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-[#c9f31d] transition-colors">
-              <h4 className="font-bold text-lg mb-2">{proj.title}</h4>
-              <p className="text-xs font-mono text-[#8aab13] mb-3">{proj.tech}</p>
-              <p className="text-sm text-gray-600 mb-4">{proj.desc}</p>
-              <a href="#" className="text-xs font-bold uppercase flex items-center gap-1 hover:text-[#c9f31d]">View Details <ArrowRight size={12} /></a>
             </div>
           ))}
         </div>

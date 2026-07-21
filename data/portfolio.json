@@ -2,37 +2,119 @@
   "projects": [
     {
       "id": "1",
-      "title": "E-Commerce Platform",
-      "desc": "Full-featured e-commerce platform with admin dashboard, payments and analytics.",
-      "tech": ["React", "Node.js", "MongoDB", "Tailwind"],
-      "features": "User Authentication, Product Management, Stripe Integration, Admin Dashboard.",
-      "liveUrl": "#",
-      "githubUrl": "#"
+      "title": "FilmFlex",
+      "desc": "FilmFlex allows movie reservations for cinema. This application is built using Next.js with a focus on API development and design, utilizing Shadcn UI for a sleek interface.",
+      "tech": [
+        "Next.js",
+        "API Development",
+        "Shadcn UI",
+        "React"
+      ],
+      "features": "",
+      "liveUrl": "https://github.com/AdeelTahir-SE/FilmFlex",
+      "githubUrl": "https://github.com/AdeelTahir-SE/FilmFlex"
     },
     {
-      "id": "2",
-      "title": "Task Management App",
-      "desc": "A productivity app to manage daily tasks with real-time updates.",
-      "tech": ["Next.js", "Firebase", "Tailwind CSS"],
-      "features": "Real-time sync, Drag-and-drop, Notifications.",
-      "liveUrl": "#",
-      "githubUrl": "#"
+      "id": "3",
+      "title": "BroadCast Server",
+      "desc": "A broadcast Server application built with Node.js, Express, and Socket.IO for seamless communication. Handles HTTP requests and live chat functionality efficiently.",
+      "tech": [
+        "Node.js",
+        "Express.js",
+        "Command Line",
+        "Chalk",
+        "Socket.io"
+      ],
+      "features": "",
+      "liveUrl": "https://github.com/AdeelTahir-SE/BroadcastServer",
+      "githubUrl": "https://github.com/AdeelTahir-SE/BroadcastServer"
+    },
+    {
+      "id": "4",
+      "title": "Weather-App",
+      "desc": "A weather app built with React, Redis, Node.js, and Express that provides real-time weather data for today and forecasts for the entire week, with Redis for caching.",
+      "tech": [
+        "Node.js",
+        "Express",
+        "Redis",
+        "React",
+        "Tailwind CSS"
+      ],
+      "features": "",
+      "liveUrl": "https://github.com/AdeelTahir-SE/Weather-App",
+      "githubUrl": "https://github.com/AdeelTahir-SE/Weather-App"
+    },
+    {
+      "id": "5",
+      "title": "Todo List API",
+      "desc": "The To-Do List API allows users to manage items. Includes endpoints for registration, login, and CRUD operations. Secured with JWT and utilizes Prisma ORM.",
+      "tech": [
+        "Node.js",
+        "Express",
+        "REST API",
+        "PostgreSQL",
+        "Prisma ORM"
+      ],
+      "features": "",
+      "liveUrl": "https://github.com/AdeelTahir-SE/TODO_List_API",
+      "githubUrl": "https://github.com/AdeelTahir-SE/TODO_List_API"
+    },
+    {
+      "id": "6",
+      "title": "Personal Blogs",
+      "desc": "A personal blog application leveraging Node.js, Express, and React to deliver a seamless blogging experience, robust server-side management, and intuitive UI.",
+      "tech": [
+        "Node.js",
+        "Express",
+        "REST API",
+        "React",
+        "Prisma ORM",
+        "MySQL",
+        "Tailwind CSS"
+      ],
+      "features": "",
+      "liveUrl": "https://github.com/AdeelTahir-SE/Personal-Blogs",
+      "githubUrl": "https://github.com/AdeelTahir-SE/Personal-Blogs"
+    },
+    {
+      "id": "7",
+      "title": "MarkoConvert",
+      "desc": "A web-based application that allows users to write, preview, and save Markdown notes. Users can drag and drop existing files to view and edit them.",
+      "tech": [
+        "Node.js",
+        "Express",
+        "REST API",
+        "React",
+        "Prisma ORM",
+        "Tailwind CSS",
+        "PostgreSQL"
+      ],
+      "features": "",
+      "liveUrl": "https://github.com/AdeelTahir-SE/MarkoConvert",
+      "githubUrl": "https://github.com/AdeelTahir-SE/MarkoConvert"
     }
   ],
   "experiences": [
     {
       "id": "1",
-      "role": "Frontend Developer",
-      "company": "Tech Solutions Inc.",
-      "duration": "Jan 2022 - Present",
-      "desc": "Developing scalable web applications using React and Next.js. Improving performance and accessibility across all projects."
+      "role": "\"Kryptosphere\" React App - Client Project",
+      "company": "Client",
+      "duration": "Completed in 2024",
+      "desc": "Developed a comprehensive React application tailored to client specifications, showcasing expertise in modern front-end development practices and client-oriented solutions."
     },
     {
       "id": "2",
-      "role": "Junior Web Developer",
-      "company": "Creative Web Agency",
-      "duration": "Jun 2020 - Dec 2021",
-      "desc": "Assisted in building client websites using modern HTML, CSS, and JavaScript. Collaborated with designers to implement pixel-perfect UIs."
+      "role": "Web Development Projects",
+      "company": "Self-Employed",
+      "duration": "Ongoing",
+      "desc": "Engaged in various web development projects, focusing on both front-end and back-end technologies. Leveraged frameworks such as React and Node.js to build scalable and efficient web applications."
+    },
+    {
+      "id": "3",
+      "role": "Continuous Learning and Professional Development",
+      "company": "Self",
+      "duration": "Ongoing",
+      "desc": "Committed to staying current with industry trends through continuous learning. Actively experimenting with emerging technologies, contributing to open-source projects, and applying best practices in web development."
     }
   ]
 }

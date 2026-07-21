@@ -1,9 +1,10 @@
 "use client";
-import Image from "next/image";
+import NextImage from "next/image";
 import { useEffect, useRef } from "react";
 import Typed from "typed.js";
-import { useTheme } from "next-themes";
-import coder from "@/public/gif3.png"; // Ensure this path is correct
+import dynamic from "next/dynamic";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Card, CardContent } from "@/components/ui/card";
 import SkillsCard from "@/components/ui/SkillsCard";
 import html from "@/components/ui/html.svg";
@@ -33,44 +34,80 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
+// Dynamic imports — Three.js must not run on SSR
+const ThreeBackground = dynamic(
+  () => import("@/components/ThreeBackground"),
+  { ssr: false }
+);
+const LaptopScene = dynamic(
+  () => import("@/components/LaptopScene"),
+  { ssr: false }
+);
+
+gsap.registerPlugin(ScrollTrigger);
+
 const projects = [
   {
-    title: "Restaurant application",
+    title: "Restaurant Application",
     description:
       "Utilizes MongoDB, Express.js, React, and Node.js to deliver a seamless user experience for managing food items, user data, and orders.",
-    techs: ["React", "CSS", "API", "mongoDB", "Expressjs", "Nodejs"],
+    techs: ["React", "CSS", "API", "MongoDB", "Express.js", "Node.js"],
   },
   {
     title: "BroadCast Server",
     description:
       "Built with Node.js, Express, and Socket.IO for seamless communication, enabling live chat functionality and command-line interactions.",
-    techs: ["Node.js", "Express.js", "commandline", "chalk", "Socket.io"],
+    techs: ["Node.js", "Express.js", "CLI", "chalk", "Socket.io"],
   },
   {
-    title: "Weather-App",
+    title: "Weather App",
     description:
       "Provides real-time weather data and forecasts using React, Redis, Node.js, and Express, with efficient caching for quick retrieval.",
-    techs: ["Node.js", "Express", "Redis", "React", "Tailwindcss"],
+    techs: ["Node.js", "Express", "Redis", "React", "Tailwind CSS"],
   },
   {
     title: "Todo List API",
     description:
       "Allows users to manage to-do items with endpoints for CRUD operations, secured using JWT and Prisma for database interactions.",
-    techs: ["Node.js", "Express", "REST api", "Postgres", "Prisma ORM"],
+    techs: ["Node.js", "Express", "REST API", "Postgres", "Prisma ORM"],
   },
   {
-    title: "See more Projects",
-    description: "For More projects visit Projects PAGE",
+    title: "More Projects →",
+    description: "Visit the Projects page for the full collection of work.",
     techs: [],
   },
 ];
 
-export default function Home() {
-  const { theme } = useTheme();
-  const typedRef = useRef(null);
+const skills = [
+  { title: "HTML", description: "Semantic markup & accessibility", img: html },
+  { title: "CSS", description: "Advanced layouts & animations", img: css },
+  { title: "JavaScript", description: "ES2024, async patterns, DOM", img: javascript },
+  { title: "TypeScript", description: "Typed superset of JavaScript", img: typescript },
+  { title: "Node.js", description: "Server-side JS runtime", img: nodejs },
+  { title: "React.js", description: "Component-based UI library", img: reactjs },
+  { title: "Next.js", description: "Full-stack React framework", img: nextjs },
+  { title: "MongoDB", description: "NoSQL document database", img: mongodb },
+  { title: "PostgreSQL", description: "Relational database system", img: postgres },
+  { title: "MySQL", description: "Open-source RDBMS", img: mysql },
+  { title: "Tailwind CSS", description: "Utility-first CSS framework", img: tailwindcss },
+  { title: "Redis", description: "In-memory data store & cache", img: redis },
+  { title: "Express", description: "Minimalist Node.js framework", img: express },
+  { title: "Git", description: "Version control system", img: git },
+  { title: "npm", description: "Node package manager", img: npm },
+];
 
+export default function Home() {
+  const typedRef = useRef(null);
+  const heroHeadingRef = useRef(null);
+  const heroSubRef = useRef(null);
+  const heroCTARef = useRef(null);
+  const projectsSectionRef = useRef(null);
+  const skillsSectionRef = useRef(null);
+  const certSectionRef = useRef(null);
+
+  // ── Typed.js ──────────────────────────────────────────────
   useEffect(() => {
-    const options = {
+    const typed = new Typed(typedRef.current, {
       strings: [
         "Full Stack Developer",
         "MERN Stack Developer",
@@ -80,248 +117,446 @@ export default function Home() {
       ],
       typeSpeed: 50,
       backSpeed: 25,
-      backDelay: 1000,
-      startDelay: 500,
+      backDelay: 1200,
+      startDelay: 800,
       loop: true,
-    };
-    const typed = new Typed(typedRef.current, options);
-    return () => {
-      typed.destroy();
-    };
+    });
+    return () => typed.destroy();
+  }, []);
+
+  // ── GSAP Scroll Animations ────────────────────────────────
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Hero entrance
+      const heroTl = gsap.timeline({ delay: 0.2 });
+      heroTl
+        .fromTo(
+          heroHeadingRef.current,
+          { y: 60, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
+        )
+        .fromTo(
+          heroSubRef.current,
+          { y: 40, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
+          "-=0.6"
+        )
+        .fromTo(
+          heroCTARef.current,
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" },
+          "-=0.5"
+        );
+
+      // Projects section title
+      gsap.fromTo(
+        projectsSectionRef.current?.querySelector(".section-header"),
+        { y: 50, opacity: 0 },
+        {
+          y: 0, opacity: 1, duration: 0.9, ease: "power3.out",
+          scrollTrigger: {
+            trigger: projectsSectionRef.current,
+            start: "top 80%",
+          },
+        }
+      );
+
+      // Project cards stagger
+      gsap.fromTo(
+        projectsSectionRef.current?.querySelectorAll(".project-card"),
+        { y: 70, opacity: 0 },
+        {
+          y: 0, opacity: 1,
+          duration: 0.75,
+          stagger: 0.12,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: projectsSectionRef.current,
+            start: "top 70%",
+          },
+        }
+      );
+
+      // Skills title
+      gsap.fromTo(
+        skillsSectionRef.current?.querySelector(".section-header"),
+        { y: 50, opacity: 0 },
+        {
+          y: 0, opacity: 1, duration: 0.9, ease: "power3.out",
+          scrollTrigger: {
+            trigger: skillsSectionRef.current,
+            start: "top 80%",
+          },
+        }
+      );
+
+      // Skills cards stagger pop
+      gsap.fromTo(
+        skillsSectionRef.current?.querySelectorAll(".skill-card-item"),
+        { scale: 0.7, opacity: 0, y: 30 },
+        {
+          scale: 1, opacity: 1, y: 0,
+          duration: 0.55,
+          stagger: 0.06,
+          ease: "back.out(1.6)",
+          scrollTrigger: {
+            trigger: skillsSectionRef.current,
+            start: "top 70%",
+          },
+        }
+      );
+
+      // Certs section
+      gsap.fromTo(
+        certSectionRef.current?.querySelector(".section-header"),
+        { y: 50, opacity: 0 },
+        {
+          y: 0, opacity: 1, duration: 0.9, ease: "power3.out",
+          scrollTrigger: {
+            trigger: certSectionRef.current,
+            start: "top 85%",
+          },
+        }
+      );
+
+      gsap.fromTo(
+        certSectionRef.current?.querySelectorAll(".cert-card"),
+        { x: (i) => (i % 2 === 0 ? -60 : 60), opacity: 0 },
+        {
+          x: 0, opacity: 1,
+          duration: 0.85,
+          stagger: 0.15,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: certSectionRef.current,
+            start: "top 75%",
+          },
+        }
+      );
+    });
+
+    return () => ctx.revert();
   }, []);
 
   return (
-    <div className="w-full flex flex-col items-center justify-center pb-32 bg-white text-black dark:bg-black dark:text-white">
-      <div className="flex flex-col md:flex-row items-center justify-between border-b-2 p-3 w-full">
-        <div className="text-center mb-8 md:mb-0 md:mx-28">
-          <h1 className="text-4xl font-bold mb-4">
-            Hi, my name is <span className="text-purple-600">Adeel Tahir</span>
-          </h1>
-          <h2 className="text-2xl">
-            a <span ref={typedRef} className="text-purple-600"></span>
-          </h2>
-        </div>
+    <div className="relative min-h-screen" style={{ fontFamily: "var(--font-main)" }}>
+      {/* Three.js background canvas — fixed, behind everything */}
+      <ThreeBackground />
 
-        <Image
-          src={coder}
-          alt="Picture of the author"
-          className="w-72 h-64 md:w-96 md:h-80 mr-9"
-        />
-      </div>
-      <div className="flex flex-col items-center">
-        <h1 className="text-4xl font-bold mb-4 text-purple-600 mt-3">
-          Projects
-        </h1>
-        <p className="text-lg text-gray-700 mb-4 flex-wrap max-w-md m-4 text-center">
-          Here are some of the latest projects that I have been working on. Each
-          project showcases my skills and dedication to delivering high-quality
-          work.
-        </p>
+      {/* Page content — above canvas */}
+      <div className="relative z-10">
 
-        <Carousel className="hidden md:flex sm:w-full md:max-w-4xl border-b-2 pb-9">
-          <CarouselContent className="-ml-1 flex-col sm:flex-col md:flex-row">
-            {projects.map((project, index) => (
-              <CarouselItem
-                key={index}
-                className="pl-1 md:basis-1/3 l hover:scale-105 cursor-pointer"
-              >
-                <div className="p-1">
-                  <Card className="hover:scale-105 cursor-pointer">
-                    <CardContent className="flex aspect-square items-center justify-center p-6">
-                      <div className="dark:bg-gray-800 p-6 rounded-lg shadow-lg bg-white">
-                        <h2 className="text-2xl font-semibold mb-2 text-purple-600">
-                          {project.title}
-                        </h2>
-                        <p className="mb-4">{project.description}</p>
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          {project.techs.map((tech, techIndex) => (
-                            <span
-                              key={techIndex}
-                              className="bg-purple-500 text-white px-2 py-1 rounded-full text-sm"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
-        <div className="grid grid-cols-1 p-12 md:hidden ">
-          {projects.filter(v=>v.title!=="Todo List API").map((project, index) => (
-            <div key={index} className="p-5">
-              <Card className="hover:scale-105 cursor-pointer">
-                <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <div className="dark:bg-gray-800 p-6 rounded-lg shadow-lg bg-white">
-                    <h2 className="text-2xl font-semibold mb-2 text-purple-600">
-                      {project.title}
-                    </h2>
-                    <p className="mb-4">{project.description}</p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.techs.map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className="bg-purple-500 text-white px-2 py-1 rounded-full text-sm"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="flex flex-col  border-b-2 pb-4">
-        <h1 className="text-4xl font-bold mb-4 text-purple-600 mt-3 text-center">
-          Skills
-        </h1>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 p-12">
-          <SkillsCard
-            title="HTML"
-            description="Language used in creating websites"
-            img={html}
-          />
-          <SkillsCard
-            title="Next.js"
-            description="Next.js 14 a framework for creating awesome websites"
-            img={css}
-          />
-          <SkillsCard
-            title="JavaScript"
-            description="Programming language that conforms to the ECMAScript specification"
-            img={javascript}
-          />
-          <SkillsCard
-            title="TypeScript"
-            description="Typed superset of JavaScript that compiles to plain JavaScript"
-            img={typescript}
-          />
-          <SkillsCard
-            title="Node.js"
-            description="JavaScript runtime built on Chrome's V8 JavaScript engine"
-            img={nodejs}
-          />
-          <SkillsCard
-            title="React.js"
-            description="JavaScript library for building user interfaces"
-            img={reactjs}
-          />
-          <SkillsCard
-            title="Next.js"
-            description="Next.js 14 a framework for creating awesome websites"
-            img={nextjs}
-          />
-          <SkillsCard
-            title="MongoDB"
-            description="NoSQL database program"
-            img={mongodb}
-          />
-          <SkillsCard
-            title="PostgreSQL"
-            description="Open source relational database management system"
-            img={postgres}
-          />
-          <SkillsCard
-            title="MySQL"
-            description="Open source relational database management system"
-            img={mysql}
-          />
-          <SkillsCard
-            title="Tailwind CSS"
-            description="Utility-first CSS framework"
-            img={tailwindcss}
-          />
-          <SkillsCard
-            title="Redis"
-            description="In-memory data structure store, used as a database, cache, and message broker"
-            img={redis}
-          />
-          <SkillsCard
-            title="Express"
-            description="Fast, unopinionated, minimalist web framework for Node.js"
-            img={express}
-          />
-          <SkillsCard
-            title="Git"
-            description="Distributed version-control system for tracking changes in source code"
-            img={git}
-          />
-          <SkillsCard
-            title="npm"
-            description="Package manager for the JavaScript programming language"
-            img={npm}
-          />
-        </div>
-        <div className="flex flex-col w-full mt-12">
-  <h1 className="text-4xl font-bold mb-8 text-purple-600 text-center">
-    Certificates
-  </h1>
-
-  <div className="relative w-full md:max-w-5xl">
-    {/* Carousel for larger screens */}
-    <div className="hidden md:flex md:justify-center">
-      <Carousel className="w-9/12 border-b-2 pb-12">
-        <CarouselContent className="flex space-x-4  -ml-1">
-          {[certificate1, certificate2, certificate3,certificate4].map((v, index) => (
-            <CarouselItem
-              key={index}
-              className="shrink-0 w-48 sm:w-64 md:w-72 lg:w-80 xl:w-96 transition-all duration-300 transform hover:scale-105 cursor-pointer"
+        {/* ─── HERO ─────────────────────────────────────────── */}
+        <section
+          className="min-h-screen flex flex-col md:flex-row items-center justify-between px-6 md:px-20 lg:px-32 pt-24"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(5,5,10,0.85) 0%, rgba(10,5,25,0.7) 100%)",
+          }}
+        >
+          {/* Text */}
+          <div className="flex-1 mb-12 md:mb-0 max-w-xl">
+            {/* Eyebrow */}
+            <div
+              ref={heroCTARef}
+              className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full glow-border text-sm"
+              style={{
+                color: "var(--accent-light)",
+                fontFamily: "var(--font-mono)",
+                background: "rgba(147,51,234,0.1)",
+              }}
             >
-              <div className="p-2 md:p-4">
-                <Card className="hover:scale-105 transition-transform shadow-lg cursor-pointer">
-                  <CardContent className="flex items-center justify-center p-4 md:p-6">
-                    <Image
-                      src={v}
-                      className="w-full h-full object-cover rounded-lg"
-                      alt={`Certificate ${index + 1}`}
-                    />
-                  </CardContent>
-                </Card>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious className="absolute top-1/2 left-0 transform -translate-y-1/2" />
-        <CarouselNext className="absolute top-1/2 right-0 transform -translate-y-1/2" />
-      </Carousel>
-    </div>
+              <span
+                className="w-2 h-2 rounded-full"
+                style={{
+                  background: "var(--accent)",
+                  animation: "pulse-glow 2s ease-in-out infinite",
+                  boxShadow: "0 0 8px var(--accent)",
+                }}
+              />
+              Available for work
+            </div>
 
-    {/* For smaller screens, display certificates vertically */}
-    <div className="block md:hidden">
-      <div className="flex flex-col items-center space-y-4">
-        {[certificate4,certificate1, certificate2,certificate3].map((v, index) => (
-          <div key={index} className="w-80 sm:w-80 md:w-72 lg:w-80 xl:w-96 transition-all duration-300 transform hover:scale-105 cursor-pointer">
-            <div className="p-2 md:p-4">
-              <Card className="hover:scale-105 transition-transform shadow-lg cursor-pointer">
-                <CardContent className="flex items-center justify-center p-4 md:p-6">
-                  <Image
-                    src={v}
-                    className="w-full h-full object-cover rounded-lg"
-                    alt={`Certificate ${index + 1}`}
-                  />
-                </CardContent>
-              </Card>
+            <h1 ref={heroHeadingRef} className="section-title mb-4" style={{ lineHeight: 1.1 }}>
+              Hi, I'm{" "}
+              <span className="gradient-text">Adeel Tahir</span>
+            </h1>
+
+            <h2
+              ref={heroSubRef}
+              className="text-xl md:text-2xl mb-8"
+              style={{ color: "var(--text-muted)", fontWeight: 400 }}
+            >
+              a{" "}
+              <span
+                ref={typedRef}
+                style={{ color: "var(--accent-light)", fontWeight: 600 }}
+              />
+            </h2>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="#projects"
+                className="px-7 py-3 rounded-xl font-semibold transition-all duration-300"
+                style={{
+                  background: "linear-gradient(135deg, var(--accent), #6366f1)",
+                  color: "#fff",
+                  boxShadow: "0 0 24px rgba(147,51,234,0.45)",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.boxShadow = "0 0 40px rgba(147,51,234,0.7)";
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.boxShadow = "0 0 24px rgba(147,51,234,0.45)";
+                  e.currentTarget.style.transform = "translateY(0)";
+                }}
+              >
+                View Work
+              </a>
+              <a
+                href="#contact"
+                className="px-7 py-3 rounded-xl font-semibold transition-all duration-300 glow-border"
+                style={{ color: "var(--accent-light)", background: "rgba(147,51,234,0.08)" }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "rgba(147,51,234,0.18)";
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "rgba(147,51,234,0.08)";
+                  e.currentTarget.style.transform = "translateY(0)";
+                }}
+              >
+                Get in Touch
+              </a>
+            </div>
+
+            {/* Social links */}
+            <div className="flex items-center gap-5 mt-10" style={{ color: "var(--text-muted)" }}>
+              <span className="text-sm" style={{ fontFamily: "var(--font-mono)" }}>Find me on</span>
+              <span
+                className="h-px flex-1 max-w-16"
+                style={{ background: "var(--border-glow)" }}
+              />
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noreferrer"
+                className="nav-link text-sm"
+              >
+                GitHub
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noreferrer"
+                className="nav-link text-sm"
+              >
+                LinkedIn
+              </a>
             </div>
           </div>
-        ))}
+
+          {/* 3D Laptop Model */}
+          <div
+            className="relative flex-shrink-0 w-full md:w-[480px] lg:w-[560px]"
+            style={{ height: "480px" }}
+          >
+            <LaptopScene />
+          </div>
+        </section>
+
+        {/* ─── PROJECTS ─────────────────────────────────────── */}
+        <section
+          id="projects"
+          ref={projectsSectionRef}
+          className="py-28 px-6 md:px-20 lg:px-32"
+          style={{ background: "rgba(5,5,10,0.92)" }}
+        >
+          {/* Header */}
+          <div className="section-header text-center mb-16">
+            <p
+              className="text-sm mb-3 tracking-widest uppercase"
+              style={{ color: "var(--accent)", fontFamily: "var(--font-mono)" }}
+            >
+              Portfolio
+            </p>
+            <h2 className="section-title gradient-text mb-4">Projects</h2>
+            <p
+              className="max-w-xl mx-auto text-base leading-relaxed"
+              style={{ color: "var(--text-muted)" }}
+            >
+              A curated selection of projects showcasing full-stack expertise
+              from database design to polished UIs.
+            </p>
+          </div>
+
+          {/* Cards grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {projects.map((project, index) => (
+              <div
+                key={index}
+                className="project-card glass-card p-6 cursor-pointer group"
+              >
+                {/* Number */}
+                <div
+                  className="text-xs mb-4"
+                  style={{
+                    color: "var(--accent)",
+                    fontFamily: "var(--font-mono)",
+                  }}
+                >
+                  0{index + 1}
+                </div>
+                <h3
+                  className="text-xl font-semibold mb-3 group-hover:text-purple-300 transition-colors"
+                  style={{ color: "var(--text-primary)" }}
+                >
+                  {project.title}
+                </h3>
+                <p
+                  className="text-sm leading-relaxed mb-5"
+                  style={{ color: "var(--text-muted)" }}
+                >
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {project.techs.map((tech, ti) => (
+                    <span key={ti} className="tech-badge">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ─── SKILLS ───────────────────────────────────────── */}
+        <section
+          id="skills"
+          ref={skillsSectionRef}
+          className="py-28 px-6 md:px-20 lg:px-32"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(5,5,10,0.95) 0%, rgba(10,5,30,0.95) 100%)",
+          }}
+        >
+          <div className="section-header text-center mb-16">
+            <p
+              className="text-sm mb-3 tracking-widest uppercase"
+              style={{ color: "var(--accent)", fontFamily: "var(--font-mono)" }}
+            >
+              Expertise
+            </p>
+            <h2 className="section-title gradient-text mb-4">Skills</h2>
+            <p
+              className="max-w-xl mx-auto text-base leading-relaxed"
+              style={{ color: "var(--text-muted)" }}
+            >
+              Technologies I work with to craft scalable, performant applications.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 max-w-5xl mx-auto">
+            {skills.map((skill, i) => (
+              <div key={i} className="skill-card-item">
+                <SkillsCard
+                  title={skill.title}
+                  description={skill.description}
+                  img={skill.img}
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ─── CERTIFICATES ─────────────────────────────────── */}
+        <section
+          id="certificates"
+          ref={certSectionRef}
+          className="py-28 px-6 md:px-20 lg:px-32"
+          style={{ background: "rgba(5,5,10,0.95)" }}
+        >
+          <div className="section-header text-center mb-16">
+            <p
+              className="text-sm mb-3 tracking-widest uppercase"
+              style={{ color: "var(--accent)", fontFamily: "var(--font-mono)" }}
+            >
+              Credentials
+            </p>
+            <h2 className="section-title gradient-text mb-4">Certificates</h2>
+          </div>
+
+          {/* Desktop carousel */}
+          <div className="hidden md:flex justify-center">
+            <Carousel className="w-10/12 max-w-5xl">
+              <CarouselContent className="-ml-4">
+                {[certificate1, certificate2, certificate3, certificate4].map(
+                  (v, index) => (
+                    <CarouselItem
+                      key={index}
+                      className="cert-card pl-4 basis-1/2 lg:basis-1/3"
+                    >
+                      <div
+                        className="rounded-xl overflow-hidden transition-all duration-300"
+                        style={{
+                          border: "1px solid rgba(147,51,234,0.25)",
+                          boxShadow: "0 0 20px rgba(147,51,234,0.1)",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.boxShadow =
+                            "0 0 40px rgba(147,51,234,0.4)";
+                          e.currentTarget.style.borderColor =
+                            "rgba(147,51,234,0.55)";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.boxShadow =
+                            "0 0 20px rgba(147,51,234,0.1)";
+                          e.currentTarget.style.borderColor =
+                            "rgba(147,51,234,0.25)";
+                        }}
+                      >
+                        <NextImage
+                          src={v}
+                          className="w-full h-full object-cover"
+                          alt={`Certificate ${index + 1}`}
+                        />
+                      </div>
+                    </CarouselItem>
+                  )
+                )}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          </div>
+
+          {/* Mobile stack */}
+          <div className="flex flex-col items-center gap-6 md:hidden">
+            {[certificate4, certificate1, certificate2, certificate3].map(
+              (v, index) => (
+                <div
+                  key={index}
+                  className="cert-card w-full max-w-sm rounded-xl overflow-hidden"
+                  style={{
+                    border: "1px solid rgba(147,51,234,0.25)",
+                    boxShadow: "0 0 20px rgba(147,51,234,0.1)",
+                  }}
+                >
+                  <NextImage
+                    src={v}
+                    className="w-full h-full object-cover"
+                    alt={`Certificate ${index + 1}`}
+                  />
+                </div>
+              )
+            )}
+          </div>
+        </section>
+
       </div>
     </div>
-  </div>
-</div>
-
-
-  </div>
-  </div>
-
-      
   );
 }

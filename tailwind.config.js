@@ -8,8 +8,16 @@ module.exports = {
   ],
   theme: {
   	extend: {
-		
+  		fontFamily: {
+  			main: ['Outfit', 'sans-serif'],
+  			mono: ['JetBrains Mono', 'monospace'],
+  		},
   		colors: {
+  			lime: {
+  				DEFAULT: '#c9f31d',
+  				hover: '#b8e010',
+  				dim: 'rgba(201, 243, 29, 0.15)',
+  			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

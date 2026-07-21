@@ -1,121 +1,202 @@
+"use client";
 import Link from "next/link";
 import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
-// Assuming you have SVG components for Upwork and Fiverr
 import upwork from "@/public/upwork.png";
 import fiverr from "@/public/fiverr.png";
 import Image from "next/image";
+
+const quickLinks = [
+  { label: "Home", href: "/" },
+  { label: "About Me", href: "/AboutMe" },
+  { label: "Services", href: "/Services" },
+  { label: "Projects", href: "/Projects" },
+  { label: "Contact", href: "/ContactMe" },
+];
+
+const socialLinks = [
+  {
+    icon: <FaGithub size={20} />,
+    href: "https://github.com/AdeelTahir-SE",
+    label: "GitHub",
+  },
+  {
+    icon: <FaInstagram size={20} />,
+    href: "https://www.instagram.com/adeeltahir150/?hl=en",
+    label: "Instagram",
+  },
+  {
+    icon: <FaLinkedin size={20} />,
+    href: "https://www.linkedin.com/in/adeel-tahir-fullstackdeveoper/",
+    label: "LinkedIn",
+  },
+];
+
 export default function Footer() {
   return (
-    <>
-      {/* Footer */}
-      <footer className="bg-gray-800 text-white py-8 relative bottom-0 w-full">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-between">
-            {/* Navigation Links */}
-            <div className="w-full md:w-1/3 mb-6 md:mb-0">
-              <h2 className="text-xl font-semibold mb-4">Quick Links</h2>
-              <ul>
-                <li className="mb-2">
-                  <Link href="/" className="hover:underline">
-                    Home
-                  </Link>
-                </li>
-                <li className="mb-2">
-                  <Link href="/AboutMe" className="hover:underline">
-                    About me
-                  </Link>
-                </li>
-                <li className="mb-2">
-                  <Link href="/Services" className="hover:underline">
-                    Services
-                  </Link>
-                </li>
-                <li className="mb-2">
-                  <Link href="/Projects" className="hover:underline">
-                    Projects
-                  </Link>
-                </li>
-                <li className="mb-2">
-                  <Link href="/ContactMe" className="hover:underline">
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </div>
+    <footer
+      className="relative z-10 w-full"
+      style={{
+        background: "rgba(5,5,10,0.98)",
+        borderTop: "1px solid rgba(147,51,234,0.2)",
+      }}
+    >
+      {/* Glow line at top */}
+      <div
+        className="w-full h-px"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, rgba(147,51,234,0.6), transparent)",
+        }}
+      />
 
-            {/* Social Media Links */}
-            <div className="w-full md:w-1/3 mb-6 md:mb-0">
-              <h2 className="text-xl font-semibold mb-4">Follow me</h2>
-              <div className="flex space-x-4">
-                <a
-                  href="https://github.com/AdeelTahir-SE"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-gray-400"
-                >
-                  <FaGithub size={24} />
-                </a>
-                <a
-                  href="https://www.instagram.com/adeeltahir150/?hl=en"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-gray-400"
-                >
-                  <FaInstagram size={24} />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/adeel-tahir-fullstackdeveoper/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-gray-400"
-                >
-                  <FaLinkedin size={24} />
-                </a>
-                <a
-                  href="https://www.upwork.com/freelancers/adeelt14?mp_source=share"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-gray-400"
-                >
-                  <Image
-                    src={upwork}
-                    width={24}
-                    height={24}
-                    className="filter invert" // Add filter here
-                  />
-                </a>
-                <a
-                  href="https://www.fiverr.com/s/vvE6leq"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-gray-400"
-                >
-                  <Image
-                    src={fiverr}
-                    width={24}
-                    height={24}
-                    className="filter invert" // Add filter here
-                  />
-                </a>
-              </div>
+      <div className="max-w-6xl mx-auto px-6 md:px-16 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {/* Brand */}
+          <div>
+            <div
+              className="text-3xl font-bold mb-4"
+              style={{
+                background: "linear-gradient(135deg, #c084fc, #9333ea)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                fontFamily: "var(--font-mono)",
+              }}
+            >
+              AT.
             </div>
+            <p
+              className="text-sm leading-relaxed max-w-xs"
+              style={{ color: "#475569" }}
+            >
+              Building scalable, high-performance web applications with a passion
+              for clean code and beautiful UIs.
+            </p>
 
-            {/* Contact Information */}
-            <div className="w-full md:w-1/3">
-              <h2 className="text-xl font-semibold mb-4">Contact me</h2>
-              <p className="mb-2">Islamabad, Nust</p>
-              <p className="mb-2">Email: adeeltahir6a@gmail.com</p>
-              <p>Phone: 03001124769</p>
-              <p>Phone: 03334062285</p>
+            {/* Social row */}
+            <div className="flex gap-3 mt-6">
+              {socialLinks.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="w-10 h-10 flex items-center justify-center rounded-lg transition-all duration-300"
+                  style={{
+                    border: "1px solid rgba(147,51,234,0.25)",
+                    color: "#64748b",
+                    background: "rgba(147,51,234,0.05)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = "rgba(147,51,234,0.6)";
+                    e.currentTarget.style.color = "#c084fc";
+                    e.currentTarget.style.background = "rgba(147,51,234,0.15)";
+                    e.currentTarget.style.boxShadow =
+                      "0 0 15px rgba(147,51,234,0.3)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = "rgba(147,51,234,0.25)";
+                    e.currentTarget.style.color = "#64748b";
+                    e.currentTarget.style.background = "rgba(147,51,234,0.05)";
+                    e.currentTarget.style.boxShadow = "none";
+                  }}
+                >
+                  {s.icon}
+                </a>
+              ))}
+              <a
+                href="https://www.upwork.com/freelancers/adeelt14?mp_source=share"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Upwork"
+                className="w-10 h-10 flex items-center justify-center rounded-lg transition-all duration-300"
+                style={{
+                  border: "1px solid rgba(147,51,234,0.25)",
+                  background: "rgba(147,51,234,0.05)",
+                }}
+              >
+                <Image src={upwork} width={18} height={18} alt="Upwork" className="filter invert opacity-50" />
+              </a>
+              <a
+                href="https://www.fiverr.com/s/vvE6leq"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Fiverr"
+                className="w-10 h-10 flex items-center justify-center rounded-lg transition-all duration-300"
+                style={{
+                  border: "1px solid rgba(147,51,234,0.25)",
+                  background: "rgba(147,51,234,0.05)",
+                }}
+              >
+                <Image src={fiverr} width={18} height={18} alt="Fiverr" className="filter invert opacity-50" />
+              </a>
             </div>
           </div>
 
-          {/* Copyright */}
-          <div className="mt-8 text-center border-t border-gray-700 pt-4">
-            <p>&copy; 2024 . All rights reserved.</p>
+          {/* Quick links */}
+          <div>
+            <h3
+              className="text-sm font-semibold uppercase tracking-widest mb-6"
+              style={{ color: "#9333ea", fontFamily: "var(--font-mono)" }}
+            >
+              Quick Links
+            </h3>
+            <ul className="space-y-3">
+              {quickLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm nav-link"
+                    style={{ color: "#64748b" }}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact info */}
+          <div>
+            <h3
+              className="text-sm font-semibold uppercase tracking-widest mb-6"
+              style={{ color: "#9333ea", fontFamily: "var(--font-mono)" }}
+            >
+              Contact
+            </h3>
+            <div className="space-y-3 text-sm" style={{ color: "#64748b" }}>
+              <p>📍 Islamabad, NUST</p>
+              <p>
+                ✉️{" "}
+                <a
+                  href="mailto:adeeltahir6a@gmail.com"
+                  className="nav-link"
+                  style={{ color: "#64748b" }}
+                >
+                  adeeltahir6a@gmail.com
+                </a>
+              </p>
+              <p>📞 +92 300 1124769</p>
+            </div>
           </div>
         </div>
-      </footer>
-    </>
+
+        {/* Bottom bar */}
+        <div
+          className="mt-14 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs"
+          style={{
+            borderTop: "1px solid rgba(147,51,234,0.12)",
+            color: "#334155",
+          }}
+        >
+          <p>© 2025 Adeel Tahir. All rights reserved.</p>
+          <p style={{ fontFamily: "var(--font-mono)" }}>
+            Built with{" "}
+            <span style={{ color: "#9333ea" }}>Next.js</span> &{" "}
+            <span style={{ color: "#9333ea" }}>Three.js</span>
+          </p>
+        </div>
+      </div>
+    </footer>
   );
 }

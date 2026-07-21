@@ -13,7 +13,7 @@ export default function ContactMe() {
     try {
       const data = Object.fromEntries(formData.entries());
   
-      const res = await fetch('/api/contact', {
+      const res = await fetch('/api/messages', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -12,10 +12,12 @@ const navLinks = [
   { label: 'Skills', href: '/Skills' },
   { label: 'Projects', href: '/Projects' },
   { label: 'Experience', href: '/Experience' },
+  { label: 'Services', href: '/Services' },
+  { label: 'Certificates', href: '/Certificates' },
   { label: 'Contact', href: '/ContactMe' }
 ];
 
-export default function Navbar() {
+export default function Navbar({ resumeUrl = "/Adeel_Tahir_Resume.pdf" }) {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
@@ -62,7 +64,7 @@ export default function Navbar() {
         {/* RIGHT: Download CV (Desktop) */}
         <div className="hidden md:block">
           <a 
-            href="/Adeel_Tahir_Resume.pdf" 
+            href={resumeUrl}
             target="_blank" 
             rel="noopener noreferrer"
             className="btn-primary inline-flex items-center gap-2 bg-[#c9f31d] text-[#1a1a1a] border-2 border-black font-bold py-2 px-5 transition-all duration-300 uppercase text-sm shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-y-[4px] hover:translate-x-[4px]"
@@ -107,16 +109,18 @@ export default function Navbar() {
                     </Link>
                   )
                 })}
-                <a 
-                  href="/Adeel_Tahir_Resume.pdf" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="mt-4 inline-flex justify-center items-center gap-2 bg-[#c9f31d] text-[#1a1a1a] border-2 border-black font-bold py-3 px-5 transition-all duration-300 uppercase text-sm w-full shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-y-[4px] hover:translate-x-[4px]"
-                  style={{ fontFamily: 'var(--font-main)' }}
-                >
-                  Download CV
-                  <Download size={18} strokeWidth={2.5} />
-                </a>
+                <div className="mt-8 pt-6 border-t border-[#333]">
+                  <a 
+                    href={resumeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex justify-center items-center gap-2 bg-[#c9f31d] text-[#1a1a1a] border-2 border-black font-bold py-3 px-5 transition-all duration-300 uppercase text-sm w-full shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-y-[4px] hover:translate-x-[4px]"
+                    style={{ fontFamily: 'var(--font-main)' }}
+                  >
+                    Download CV
+                    <Download size={18} strokeWidth={2.5} />
+                  </a>
+                </div>
               </div>
             </SheetContent>
           </Sheet>

@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/ui/Footer";
 import Navbar from "@/components/ui/navbar";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
+import { getPortfolioData } from '@/lib/dataUtils';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -23,6 +24,9 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const data = getPortfolioData();
+  const resumeUrl = data.settings?.resumeUrl || "/Adeel_Tahir_Resume.pdf";
+
   return (
     <html lang="en">
       <head>
@@ -43,7 +47,7 @@ export default function RootLayout({ children }) {
           disableTransitionOnChange
         >
           <SmoothScrollProvider>
-            <Navbar />
+            <Navbar resumeUrl={resumeUrl} />
             {children}
             <Footer />
           </SmoothScrollProvider>

@@ -1,200 +1,102 @@
-"use client";
-import Link from "next/link";
-import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
-import upwork from "@/public/upwork.png";
-import fiverr from "@/public/fiverr.png";
-import Image from "next/image";
+'use client';
 
-const quickLinks = [
-  { label: "Home", href: "/" },
-  { label: "About Me", href: "/AboutMe" },
-  { label: "Services", href: "/Services" },
-  { label: "Projects", href: "/Projects" },
-  { label: "Contact", href: "/ContactMe" },
-];
-
-const socialLinks = [
-  {
-    icon: <FaGithub size={20} />,
-    href: "https://github.com/AdeelTahir-SE",
-    label: "GitHub",
-  },
-  {
-    icon: <FaInstagram size={20} />,
-    href: "https://www.instagram.com/adeeltahir150/?hl=en",
-    label: "Instagram",
-  },
-  {
-    icon: <FaLinkedin size={20} />,
-    href: "https://www.linkedin.com/in/adeel-tahir-fullstackdeveoper/",
-    label: "LinkedIn",
-  },
-];
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { Code2 } from 'lucide-react';
+import upwork from '@/public/upwork.png';
+import fiverr from '@/public/fiverr.png';
 
 export default function Footer() {
   return (
-    <footer
-      className="relative z-10 w-full"
-      style={{
-        background: "rgba(5,5,10,0.98)",
-        borderTop: "1px solid rgba(147,51,234,0.2)",
-      }}
-    >
-      {/* Glow line at top */}
-      <div
-        className="w-full h-px"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent, rgba(147,51,234,0.6), transparent)",
-        }}
-      />
-
-      <div className="max-w-6xl mx-auto px-6 md:px-16 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {/* Brand */}
-          <div>
-            <div
-              className="text-3xl font-bold mb-4"
-              style={{
-                background: "linear-gradient(135deg, #c084fc, #9333ea)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                fontFamily: "var(--font-mono)",
-              }}
-            >
-              AT.
-            </div>
-            <p
-              className="text-sm leading-relaxed max-w-xs"
-              style={{ color: "#475569" }}
-            >
-              Building scalable, high-performance web applications with a passion
-              for clean code and beautiful UIs.
+    <footer className="bg-[#1a1a1a] text-white pt-20 pb-8 border-t border-[#333]" style={{ fontFamily: 'var(--font-main)' }}>
+      <div className="container mx-auto px-4 md:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-16">
+          
+          {/* COLUMN 1: Logo & Socials */}
+          <div className="lg:col-span-2">
+            <Link href="/" className="flex items-center gap-3 mb-6 inline-flex group">
+              <div className="bg-[#c9f31d] text-[#1a1a1a] p-2 rounded flex items-center justify-center transition-transform group-hover:rotate-12">
+                <Code2 size={24} strokeWidth={2.5} />
+              </div>
+              <div className="flex flex-col leading-none">
+                <span className="font-bold text-white text-xl tracking-tight">ADEEL TAHIR</span>
+                <span className="text-gray-400 text-[10px] font-semibold tracking-widest mt-1" style={{ fontFamily: 'var(--font-mono)' }}>NEXT.JS DEVELOPER</span>
+              </div>
+            </Link>
+            <p className="text-gray-400 mb-8 max-w-sm leading-relaxed">
+              Building fast, modern and scalable web applications with a focus on user experience and clean code.
             </p>
-
-            {/* Social row */}
-            <div className="flex gap-3 mt-6">
-              {socialLinks.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                  className="w-10 h-10 flex items-center justify-center rounded-lg transition-all duration-300"
-                  style={{
-                    border: "1px solid rgba(147,51,234,0.25)",
-                    color: "#64748b",
-                    background: "rgba(147,51,234,0.05)",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = "rgba(147,51,234,0.6)";
-                    e.currentTarget.style.color = "#c084fc";
-                    e.currentTarget.style.background = "rgba(147,51,234,0.15)";
-                    e.currentTarget.style.boxShadow =
-                      "0 0 15px rgba(147,51,234,0.3)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = "rgba(147,51,234,0.25)";
-                    e.currentTarget.style.color = "#64748b";
-                    e.currentTarget.style.background = "rgba(147,51,234,0.05)";
-                    e.currentTarget.style.boxShadow = "none";
-                  }}
-                >
-                  {s.icon}
-                </a>
-              ))}
-              <a
-                href="https://www.upwork.com/freelancers/adeelt14?mp_source=share"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Upwork"
-                className="w-10 h-10 flex items-center justify-center rounded-lg transition-all duration-300"
-                style={{
-                  border: "1px solid rgba(147,51,234,0.25)",
-                  background: "rgba(147,51,234,0.05)",
-                }}
-              >
-                <Image src={upwork} width={18} height={18} alt="Upwork" className="filter invert opacity-50" />
+            <div className="flex items-center gap-4">
+              <a href="https://github.com/adeeltahir" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-[#2a2a2a] flex items-center justify-center text-white hover:bg-[#c9f31d] hover:text-[#1a1a1a] transition-all">
+                <FaGithub size={18} />
               </a>
-              <a
-                href="https://www.fiverr.com/s/vvE6leq"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Fiverr"
-                className="w-10 h-10 flex items-center justify-center rounded-lg transition-all duration-300"
-                style={{
-                  border: "1px solid rgba(147,51,234,0.25)",
-                  background: "rgba(147,51,234,0.05)",
-                }}
-              >
-                <Image src={fiverr} width={18} height={18} alt="Fiverr" className="filter invert opacity-50" />
+              <a href="https://linkedin.com/in/adeeltahir" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-[#2a2a2a] flex items-center justify-center text-white hover:bg-[#c9f31d] hover:text-[#1a1a1a] transition-all">
+                <FaLinkedin size={18} />
+              </a>
+              <a href="https://instagram.com/adeeltahir" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-[#2a2a2a] flex items-center justify-center text-white hover:bg-[#c9f31d] hover:text-[#1a1a1a] transition-all">
+                <FaInstagram size={18} />
+              </a>
+              <a href="https://upwork.com" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-[#2a2a2a] flex items-center justify-center hover:bg-[#c9f31d] transition-all overflow-hidden">
+                <Image src={upwork} alt="Upwork" width={24} height={24} className="object-contain" />
+              </a>
+              <a href="https://fiverr.com" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-[#2a2a2a] flex items-center justify-center hover:bg-[#c9f31d] transition-all overflow-hidden">
+                <Image src={fiverr} alt="Fiverr" width={24} height={24} className="object-contain" />
               </a>
             </div>
           </div>
 
-          {/* Quick links */}
+          {/* COLUMN 2: QUICK LINKS */}
           <div>
-            <h3
-              className="text-sm font-semibold uppercase tracking-widest mb-6"
-              style={{ color: "#9333ea", fontFamily: "var(--font-mono)" }}
-            >
-              Quick Links
-            </h3>
-            <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm nav-link"
-                    style={{ color: "#64748b" }}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+            <h4 className="text-white font-bold mb-6 tracking-widest text-sm" style={{ fontFamily: 'var(--font-mono)' }}>QUICK LINKS</h4>
+            <ul className="flex flex-col gap-3">
+              <li><Link href="/AboutMe" className="text-gray-400 hover:text-[#c9f31d] transition-colors">About Me</Link></li>
+              <li><Link href="/#skills" className="text-gray-400 hover:text-[#c9f31d] transition-colors">Skills</Link></li>
+              <li><Link href="/#services" className="text-gray-400 hover:text-[#c9f31d] transition-colors">Services</Link></li>
+              <li><Link href="/#projects" className="text-gray-400 hover:text-[#c9f31d] transition-colors">Projects</Link></li>
+              <li><Link href="/ContactMe" className="text-gray-400 hover:text-[#c9f31d] transition-colors">Contact</Link></li>
             </ul>
           </div>
 
-          {/* Contact info */}
+          {/* COLUMN 3: RESOURCES */}
           <div>
-            <h3
-              className="text-sm font-semibold uppercase tracking-widest mb-6"
-              style={{ color: "#9333ea", fontFamily: "var(--font-mono)" }}
-            >
-              Contact
-            </h3>
-            <div className="space-y-3 text-sm" style={{ color: "#64748b" }}>
-              <p>📍 Islamabad, NUST</p>
-              <p>
-                ✉️{" "}
-                <a
-                  href="mailto:adeeltahir6a@gmail.com"
-                  className="nav-link"
-                  style={{ color: "#64748b" }}
-                >
-                  adeeltahir6a@gmail.com
-                </a>
-              </p>
-              <p>📞 +92 300 1124769</p>
-            </div>
+            <h4 className="text-white font-bold mb-6 tracking-widest text-sm" style={{ fontFamily: 'var(--font-mono)' }}>RESOURCES</h4>
+            <ul className="flex flex-col gap-3">
+              <li><Link href="/blog" className="text-gray-400 hover:text-[#c9f31d] transition-colors">Blog</Link></li>
+              <li><Link href="/docs" className="text-gray-400 hover:text-[#c9f31d] transition-colors">Documentation</Link></li>
+              <li><Link href="/tutorials" className="text-gray-400 hover:text-[#c9f31d] transition-colors">Tutorials</Link></li>
+            </ul>
           </div>
+
+          {/* COLUMN 4: OTHER */}
+          <div>
+            <h4 className="text-white font-bold mb-6 tracking-widest text-sm" style={{ fontFamily: 'var(--font-mono)' }}>OTHER</h4>
+            <ul className="flex flex-col gap-3">
+              <li><Link href="/#experience" className="text-gray-400 hover:text-[#c9f31d] transition-colors">Experience</Link></li>
+              <li><Link href="/#testimonials" className="text-gray-400 hover:text-[#c9f31d] transition-colors">Testimonials</Link></li>
+              <li><Link href="/terms" className="text-gray-400 hover:text-[#c9f31d] transition-colors">Terms of Service</Link></li>
+              <li><Link href="/privacy" className="text-gray-400 hover:text-[#c9f31d] transition-colors">Privacy Policy</Link></li>
+            </ul>
+          </div>
+
+          {/* COLUMN 5: LET'S CONNECT */}
+          <div className="lg:col-span-5 border-t border-[#333] pt-10 mt-4 text-center md:text-left flex flex-col md:flex-row items-center justify-between">
+             <div className="mb-4 md:mb-0">
+               <h4 className="text-white font-bold mb-2 tracking-widest text-sm" style={{ fontFamily: 'var(--font-mono)' }}>LET&apos;S CONNECT</h4>
+               <p className="text-gray-400 text-sm">Feel free to reach out for collaborations or just a friendly hello.</p>
+             </div>
+             <a href="mailto:contact@adeeltahir.com" className="inline-block bg-[#c9f31d] text-[#1a1a1a] font-bold py-3 px-8 rounded-sm hover:bg-[#b0d619] transition-colors uppercase text-sm tracking-wider" style={{ fontFamily: 'var(--font-mono)' }}>
+               Email Me
+             </a>
+          </div>
+          
         </div>
 
         {/* Bottom bar */}
-        <div
-          className="mt-14 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs"
-          style={{
-            borderTop: "1px solid rgba(147,51,234,0.12)",
-            color: "#334155",
-          }}
-        >
-          <p>© 2025 Adeel Tahir. All rights reserved.</p>
-          <p style={{ fontFamily: "var(--font-mono)" }}>
-            Built with{" "}
-            <span style={{ color: "#9333ea" }}>Next.js</span> &{" "}
-            <span style={{ color: "#9333ea" }}>Three.js</span>
-          </p>
+        <div className="border-t border-[#333] pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+          <p>© 2026 Adeel Tahir. All Rights Reserved.</p>
+          <p>Adeel Tahir & All Respective Users</p>
         </div>
       </div>
     </footer>

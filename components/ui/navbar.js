@@ -1,165 +1,122 @@
-"use client";
-import Link from "next/link";
-import { useState, useEffect } from "react";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import { Download, Menu, Code2 } from 'lucide-react';
 
 const navLinks = [
-  { label: "About", href: "/AboutMe" },
-  { label: "Services", href: "/Services" },
-  { label: "Projects", href: "/Projects" },
-  { label: "Contact", href: "/ContactMe" },
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/AboutMe' },
+  { label: 'Skills', href: '/#skills' },
+  { label: 'Projects', href: '/#projects' },
+  { label: 'Experience', href: '/#experience' },
+  { label: 'Contact', href: '/ContactMe' }
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <nav
-      className="fixed top-0 left-0 w-full z-50 transition-all duration-500"
-      style={{
-        background: scrolled
-          ? "rgba(5,5,10,0.92)"
-          : "transparent",
-        backdropFilter: scrolled ? "blur(20px)" : "blur(0px)",
-        borderBottom: scrolled
-          ? "1px solid rgba(147,51,234,0.2)"
-          : "1px solid transparent",
-        boxShadow: scrolled ? "0 4px 30px rgba(0,0,0,0.4)" : "none",
-      }}
-    >
-      <div className="flex justify-between items-center px-6 md:px-16 lg:px-28 py-4">
-        {/* Logo */}
-        <Link
-          href="/"
-          className="text-xl font-bold"
-          style={{
-            background: "linear-gradient(135deg, #c084fc, #9333ea)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            fontFamily: "var(--font-mono)",
-            letterSpacing: "-0.03em",
-          }}
-        >
-          AT.
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'}`}>
+      <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
+        
+        {/* LEFT: Logo area */}
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="bg-[#c9f31d] text-[#1a1a1a] p-2 rounded flex items-center justify-center transition-transform group-hover:rotate-12">
+            <Code2 size={24} strokeWidth={2.5} />
+          </div>
+          <div className="flex flex-col leading-none">
+            <span className="font-bold text-[#1a1a1a] text-xl tracking-tight" style={{ fontFamily: 'var(--font-main)' }}>ADEEL TAHIR</span>
+            <span className="text-gray-500 text-[10px] font-semibold tracking-widest mt-1" style={{ fontFamily: 'var(--font-mono)' }}>NEXT.JS DEVELOPER</span>
+          </div>
         </Link>
 
-        {/* Desktop links */}
-        <ul className="hidden md:flex gap-8 list-none items-center">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <Link href={link.href} className="nav-link text-sm font-medium">
+        {/* CENTER: Nav links (Desktop) */}
+        <div className="hidden md:flex items-center gap-6">
+          {navLinks.map((link, index) => {
+            const isActive = pathname === link.href || (pathname === '/' && link.href === '/');
+            return (
+              <Link 
+                key={index} 
+                href={link.href}
+                className={`text-sm font-bold tracking-wider uppercase transition-colors hover:text-[#c9f31d] ${isActive ? 'bg-[#c9f31d] text-[#1a1a1a] px-3 py-1 rounded' : 'text-[#1a1a1a]'}`}
+                style={{ fontFamily: 'var(--font-main)' }}
+              >
                 {link.label}
               </Link>
-            </li>
-          ))}
-          <li>
-            <Link
-              href="/ContactMe"
-              className="px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-300"
-              style={{
-                background: "linear-gradient(135deg, rgba(147,51,234,0.2), rgba(99,102,241,0.2))",
-                border: "1px solid rgba(147,51,234,0.4)",
-                color: "#c084fc",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background =
-                  "linear-gradient(135deg, rgba(147,51,234,0.4), rgba(99,102,241,0.4))";
-                e.currentTarget.style.boxShadow = "0 0 20px rgba(147,51,234,0.4)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background =
-                  "linear-gradient(135deg, rgba(147,51,234,0.2), rgba(99,102,241,0.2))";
-                e.currentTarget.style.boxShadow = "none";
-              }}
-            >
-              Hire Me
-            </Link>
-          </li>
-        </ul>
+            )
+          })}
+        </div>
 
-        {/* Mobile menu */}
+        {/* RIGHT: Download CV (Desktop) */}
+        <div className="hidden md:block">
+          <a 
+            href="/Adeel_Tahir_Resume.pdf" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="btn-primary inline-flex items-center gap-2 bg-[#c9f31d] hover:bg-[#b0d619] text-[#1a1a1a] font-bold py-2 px-5 rounded-sm transition-colors uppercase text-sm"
+            style={{ fontFamily: 'var(--font-main)' }}
+          >
+            Download CV
+            <Download size={18} strokeWidth={2.5} />
+          </a>
+        </div>
+
+        {/* Mobile: Hamburger menu */}
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>
-              <button
-                aria-label="Open menu"
-                className="p-2 rounded-lg transition-colors"
-                style={{
-                  color: "#c084fc",
-                  border: "1px solid rgba(147,51,234,0.3)",
-                  background: "rgba(147,51,234,0.08)",
-                }}
-              >
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16m-7 6h7"
-                  />
-                </svg>
+              <button className="text-[#1a1a1a] p-2 focus:outline-none">
+                <Menu size={28} />
               </button>
             </SheetTrigger>
-            <SheetContent
-              style={{
-                background: "rgba(8,5,20,0.97)",
-                backdropFilter: "blur(20px)",
-                borderLeft: "1px solid rgba(147,51,234,0.2)",
-              }}
-            >
+            <SheetContent side="right" className="bg-[#1a1a1a] border-[#333] text-white">
               <SheetHeader>
-                <SheetTitle
-                  style={{
-                    background: "linear-gradient(135deg, #c084fc, #9333ea)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    fontFamily: "var(--font-mono)",
-                    fontSize: "1.5rem",
-                  }}
-                >
-                  AT.
+                <SheetTitle className="text-left flex items-center gap-3 border-b border-[#333] pb-6 mt-4 group">
+                  <div className="bg-[#c9f31d] text-[#1a1a1a] p-2 rounded flex items-center justify-center">
+                    <Code2 size={24} strokeWidth={2.5} />
+                  </div>
+                  <div className="flex flex-col leading-none">
+                    <span className="font-bold text-white text-xl tracking-tight" style={{ fontFamily: 'var(--font-main)' }}>ADEEL TAHIR</span>
+                    <span className="text-[#c9f31d] text-[10px] font-semibold tracking-widest mt-1" style={{ fontFamily: 'var(--font-mono)' }}>NEXT.JS DEVELOPER</span>
+                  </div>
                 </SheetTitle>
               </SheetHeader>
-              <div className="flex flex-col gap-6 mt-10">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="text-lg font-medium nav-link"
-                    style={{ color: "#94a3b8" }}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-                <Link
-                  href="/ContactMe"
-                  className="mt-4 px-6 py-3 rounded-xl text-center font-semibold"
-                  style={{
-                    background: "linear-gradient(135deg, #9333ea, #6366f1)",
-                    color: "#fff",
-                    boxShadow: "0 0 20px rgba(147,51,234,0.4)",
-                  }}
+              <div className="flex flex-col gap-6 mt-8">
+                {navLinks.map((link, index) => {
+                  const isActive = pathname === link.href;
+                  return (
+                    <Link 
+                      key={index} 
+                      href={link.href}
+                      className={`text-lg font-bold tracking-wider uppercase transition-colors hover:text-[#c9f31d] ${isActive ? 'text-[#c9f31d]' : 'text-white'}`}
+                      style={{ fontFamily: 'var(--font-main)' }}
+                    >
+                      {link.label}
+                    </Link>
+                  )
+                })}
+                <a 
+                  href="/Adeel_Tahir_Resume.pdf" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex justify-center items-center gap-2 bg-[#c9f31d] text-[#1a1a1a] font-bold py-3 px-5 rounded-sm transition-colors uppercase text-sm w-full"
+                  style={{ fontFamily: 'var(--font-main)' }}
                 >
-                  Hire Me
-                </Link>
+                  Download CV
+                  <Download size={18} strokeWidth={2.5} />
+                </a>
               </div>
             </SheetContent>
           </Sheet>

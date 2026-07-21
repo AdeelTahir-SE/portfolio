@@ -28,7 +28,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'}`}>
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b-2 ${scrolled ? 'py-3 border-black shadow-[0_4px_0_0_rgba(201,243,29,1)]' : 'py-5 border-transparent shadow-none'}`}>
       <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
         
         {/* LEFT: Logo area */}
@@ -65,7 +65,7 @@ export default function Navbar() {
             href="/Adeel_Tahir_Resume.pdf" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="btn-primary inline-flex items-center gap-2 bg-[#c9f31d] hover:bg-[#b0d619] text-[#1a1a1a] font-bold py-2 px-5 rounded-sm transition-colors uppercase text-sm"
+            className="btn-primary inline-flex items-center gap-2 bg-[#c9f31d] text-[#1a1a1a] border-2 border-black font-bold py-2 px-5 transition-all duration-300 uppercase text-sm shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-y-[4px] hover:translate-x-[4px]"
             style={{ fontFamily: 'var(--font-main)' }}
           >
             Download CV
@@ -111,7 +111,7 @@ export default function Navbar() {
                   href="/Adeel_Tahir_Resume.pdf" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="mt-4 inline-flex justify-center items-center gap-2 bg-[#c9f31d] text-[#1a1a1a] font-bold py-3 px-5 rounded-sm transition-colors uppercase text-sm w-full"
+                  className="mt-4 inline-flex justify-center items-center gap-2 bg-[#c9f31d] text-[#1a1a1a] border-2 border-black font-bold py-3 px-5 transition-all duration-300 uppercase text-sm w-full shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-y-[4px] hover:translate-x-[4px]"
                   style={{ fontFamily: 'var(--font-main)' }}
                 >
                   Download CV

@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#1a1a1a] text-white pt-20 pb-8 border-t border-[#333]" style={{ fontFamily: 'var(--font-main)' }}>
       <div className="container mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-16">
           
           {/* COLUMN 1: Logo & Socials */}
           <div className="lg:col-span-2">
@@ -57,15 +57,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* COLUMN 3: RESOURCES */}
-          <div>
-            <h4 className="text-white font-bold mb-6 tracking-widest text-sm" style={{ fontFamily: 'var(--font-mono)' }}>RESOURCES</h4>
-            <ul className="flex flex-col gap-3">
-              <li><Link href="/blog" className="text-gray-400 hover:text-[#c9f31d] transition-colors">Blog</Link></li>
-              <li><Link href="/docs" className="text-gray-400 hover:text-[#c9f31d] transition-colors">Documentation</Link></li>
-              <li><Link href="/tutorials" className="text-gray-400 hover:text-[#c9f31d] transition-colors">Tutorials</Link></li>
-            </ul>
-          </div>
 
           {/* COLUMN 4: OTHER */}
           <div>
@@ -79,7 +70,7 @@ export default function Footer() {
           </div>
 
           {/* COLUMN 5: LET'S CONNECT */}
-          <div className="lg:col-span-5 border-t border-[#333] pt-10 mt-4 text-center md:text-left flex flex-col md:flex-row items-center justify-between">
+          <div className="lg:col-span-4 border-t border-[#333] pt-10 mt-4 text-center md:text-left flex flex-col md:flex-row items-center justify-between">
              <div className="mb-4 md:mb-0">
                <h4 className="text-white font-bold mb-2 tracking-widest text-sm" style={{ fontFamily: 'var(--font-mono)' }}>LET&apos;S CONNECT</h4>
                <p className="text-gray-400 text-sm">Feel free to reach out for collaborations or just a friendly hello.</p>

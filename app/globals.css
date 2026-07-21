@@ -106,6 +106,28 @@ body {
     text-transform: uppercase;
     font-family: var(--font-main);
     color: var(--text-primary);
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: var(--accent);
+    text-underline-offset: 12px;
+    text-decoration-thickness: 4px;
+    padding-bottom: 8px;
+  }
+
+  /* Floating animations for decorative SVGs */
+  @keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+  }
+  .animate-float-slow {
+    animation: float 6s ease-in-out infinite;
+  }
+  .animate-float-medium {
+    animation: float 4s ease-in-out infinite;
+  }
+  .animate-float-fast {
+    animation: float 3s ease-in-out infinite;
   }
 
   /* Card with border */

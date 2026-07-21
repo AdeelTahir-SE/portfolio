@@ -4,7 +4,7 @@ export default function AboutMe() {
       <div className="container mx-auto p-4 md:p-8 max-w-6xl">
         
         {/* Hero Area */}
-        <div className="flex flex-col items-center md:items-start mb-16 gap-8">
+        <div className="flex flex-col items-center md:items-start mb-16 gap-8 animate-in fade-in slide-in-from-bottom-8 duration-700">
           <div className="text-center md:text-left flex flex-col justify-center h-full pt-4">
             <h1 className="text-5xl md:text-6xl font-extrabold uppercase mb-2">Adeel Tahir</h1>
             <h2 className="text-3xl uppercase font-bold text-[#c9f31d] mb-6 tracking-wide">
@@ -22,7 +22,7 @@ export default function AboutMe() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           
           {/* Bio Section */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200 fill-mode-both">
             <h3 className="section-title text-4xl font-extrabold uppercase mb-6">Bio</h3>
             <div className="card-bordered border-2 border-black p-8 text-lg space-y-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-white">
               <p>
@@ -35,7 +35,7 @@ export default function AboutMe() {
           </div>
 
           {/* Skills Section */}
-          <div>
+          <div className="animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300 fill-mode-both">
             <h3 className="section-title text-4xl font-extrabold uppercase mb-6">Skills</h3>
             <div className="card-bordered border-2 border-black p-8 grid grid-cols-2 gap-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-white">
               {[

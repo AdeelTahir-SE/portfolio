@@ -23,6 +23,11 @@ import {
   Triangle,
   Wind,
   Hexagon,
+  CloudCog,
+  Monitor,
+  Globe,
+  Puzzle,
+  Cpu,
   Server,
   Database,
   GitBranch,
@@ -129,9 +134,19 @@ export default function Home() {
       
       {/* 1. HERO SECTION */}
       <section ref={heroRef} className="relative w-full max-w-7xl mx-auto px-6 py-24 lg:py-32 flex flex-col lg:flex-row items-center justify-between gap-12 bg-white">
-        {/* Decorative elements */}
-        <div className="absolute top-10 left-10 w-4 h-4 bg-[#c9f31d] rounded-sm animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-6 h-6 bg-gray-900 rounded-sm transform rotate-45 opacity-20"></div>
+        {/* Decorative elements - Flying SVGs */}
+        <div className="absolute top-20 left-10 text-[#c9f31d] opacity-50 animate-float-slow">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="12 2 2 22 22 22" /></svg>
+        </div>
+        <div className="absolute bottom-32 right-20 text-gray-300 opacity-50 animate-float-fast">
+          <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /></svg>
+        </div>
+        <div className="absolute top-32 right-1/4 text-gray-200 opacity-40 animate-float-medium">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /></svg>
+        </div>
+        <div className="absolute bottom-20 left-1/4 text-[#c9f31d] opacity-30 animate-float-slow" style={{ animationDelay: '1s' }}>
+          <svg width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
+        </div>
         
         {/* Left Side */}
         <div className="lg:w-1/2 flex flex-col items-start z-10">
@@ -216,19 +231,19 @@ export default function Home() {
             <h3 className="font-bold text-xl mb-5 border-b-4 border-[#c9f31d] inline-block pb-1">FRONTEND</h3>
             <div className="grid grid-cols-2 gap-3">
               {[
-                { name: 'HTML', Icon: FileCode },
-                { name: 'CSS', Icon: Paintbrush },
-                { name: 'JavaScript', Icon: Braces },
-                { name: 'TypeScript', Icon: FileType },
-                { name: 'React', Icon: Atom },
-                { name: 'Next.js', Icon: Triangle },
-                { name: 'Tailwind', Icon: Wind }
+                { name: 'HTML', cls: 'devicon-html5-plain colored' },
+                { name: 'CSS', cls: 'devicon-css3-plain colored' },
+                { name: 'JavaScript', cls: 'devicon-javascript-plain colored' },
+                { name: 'TypeScript', cls: 'devicon-typescript-plain colored' },
+                { name: 'React', cls: 'devicon-react-original colored' },
+                { name: 'Next.js', cls: 'devicon-nextjs-plain' },
+                { name: 'Tailwind', cls: 'devicon-tailwindcss-original colored' }
               ].map(s => (
-                <div key={s.name} className="flex items-center gap-2 p-2.5 rounded-lg border border-gray-100 hover:border-[#c9f31d] hover:bg-[#c9f31d08] transition-all group">
-                  <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-md bg-gray-50 group-hover:bg-[#c9f31d] group-hover:text-[#1a1a1a] transition-colors text-gray-600">
-                    <s.Icon size={18} />
+                <div key={s.name} className="flex items-center gap-2 p-2.5 rounded-lg border border-gray-100 hover:border-[#c9f31d] hover:bg-[#c9f31d08] transition-all group bg-white">
+                  <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-md bg-gray-50 group-hover:bg-white transition-colors border border-transparent group-hover:border-gray-200 shadow-sm">
+                    <i className={`${s.cls} text-[22px]`}></i>
                   </div>
-                  <span className="font-mono text-xs font-bold truncate">{s.name}</span>
+                  <span className="font-mono text-xs font-bold truncate group-hover:text-black transition-colors">{s.name}</span>
                 </div>
               ))}
             </div>
@@ -239,22 +254,21 @@ export default function Home() {
             <h3 className="font-bold text-xl mb-5 border-b-4 border-[#c9f31d] inline-block pb-1">BACKEND</h3>
             <div className="grid grid-cols-2 gap-3">
               {[
-                { name: 'Node.js', Icon: Hexagon },
-                { name: 'Express', Icon: Server },
-                { name: 'FastAPI', Icon: Zap },
-                { name: 'Flask', Icon: Code },
-                { name: 'Rust', Icon: Wrench },
-                { name: 'Axum', Icon: Activity },
-                { name: 'MongoDB', Icon: Database },
-                { name: 'PostgreSQL', Icon: Database },
-                { name: 'MySQL', Icon: Database },
-                { name: 'Redis', Icon: Zap }
+                { name: 'Node.js', cls: 'devicon-nodejs-plain colored' },
+                { name: 'Express', cls: 'devicon-express-original colored' },
+                { name: 'FastAPI', cls: 'devicon-fastapi-plain colored' },
+                { name: 'Flask', cls: 'devicon-flask-original colored' },
+                { name: 'Rust', cls: 'devicon-rust-plain text-black' },
+                { name: 'MongoDB', cls: 'devicon-mongodb-plain colored' },
+                { name: 'PostgreSQL', cls: 'devicon-postgresql-plain colored' },
+                { name: 'MySQL', cls: 'devicon-mysql-plain colored' },
+                { name: 'Redis', cls: 'devicon-redis-plain colored' }
               ].map(s => (
-                <div key={s.name} className="flex items-center gap-2 p-2.5 rounded-lg border border-gray-100 hover:border-[#c9f31d] hover:bg-[#c9f31d08] transition-all group">
-                  <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-md bg-gray-50 group-hover:bg-[#c9f31d] group-hover:text-[#1a1a1a] transition-colors text-gray-600">
-                    <s.Icon size={18} />
+                <div key={s.name} className="flex items-center gap-2 p-2.5 rounded-lg border border-gray-100 hover:border-[#c9f31d] hover:bg-[#c9f31d08] transition-all group bg-white">
+                  <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-md bg-gray-50 group-hover:bg-white transition-colors border border-transparent group-hover:border-gray-200 shadow-sm">
+                    <i className={`${s.cls} text-[22px]`}></i>
                   </div>
-                  <span className="font-mono text-xs font-bold truncate">{s.name}</span>
+                  <span className="font-mono text-xs font-bold truncate group-hover:text-black transition-colors">{s.name}</span>
                 </div>
               ))}
             </div>
@@ -265,16 +279,16 @@ export default function Home() {
             <h3 className="font-bold text-xl mb-5 border-b-4 border-[#c9f31d] inline-block pb-1">QUEUES & STREAMING</h3>
             <div className="grid grid-cols-2 gap-3">
               {[
-                { name: 'Kafka', Icon: Radio },
-                { name: 'RabbitMQ', Icon: Workflow },
-                { name: 'Flink', Icon: Activity },
-                { name: 'BullMQ', Icon: ListTodo }
+                { name: 'Kafka', cls: 'devicon-apachekafka-original colored' },
+                { name: 'RabbitMQ', cls: 'devicon-rabbitmq-original colored' },
+                { name: 'Flink', cls: 'devicon-apache-plain colored' },
+                { name: 'BullMQ', cls: 'devicon-redis-plain colored' }
               ].map(s => (
-                <div key={s.name} className="flex items-center gap-2 p-2.5 rounded-lg border border-gray-100 hover:border-[#c9f31d] hover:bg-[#c9f31d08] transition-all group">
-                  <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-md bg-gray-50 group-hover:bg-[#c9f31d] group-hover:text-[#1a1a1a] transition-colors text-gray-600">
-                    <s.Icon size={18} />
+                <div key={s.name} className="flex items-center gap-2 p-2.5 rounded-lg border border-gray-100 hover:border-[#c9f31d] hover:bg-[#c9f31d08] transition-all group bg-white">
+                  <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-md bg-gray-50 group-hover:bg-white transition-colors border border-transparent group-hover:border-gray-200 shadow-sm">
+                    <i className={`${s.cls} text-[22px]`}></i>
                   </div>
-                  <span className="font-mono text-xs font-bold truncate">{s.name}</span>
+                  <span className="font-mono text-xs font-bold truncate group-hover:text-black transition-colors">{s.name}</span>
                 </div>
               ))}
             </div>
@@ -285,16 +299,16 @@ export default function Home() {
             <h3 className="font-bold text-xl mb-5 border-b-4 border-[#c9f31d] inline-block pb-1">TOOLS</h3>
             <div className="grid grid-cols-2 gap-3">
               {[
-                { name: 'Git', Icon: GitBranch },
-                { name: 'npm', Icon: Package },
-                { name: 'Docker', Icon: Container },
-                { name: 'GitHub', Icon: Github }
+                { name: 'Git', cls: 'devicon-git-plain colored' },
+                { name: 'npm', cls: 'devicon-npm-original-wordmark colored' },
+                { name: 'Docker', cls: 'devicon-docker-plain colored' },
+                { name: 'GitHub', cls: 'devicon-github-original colored' }
               ].map(s => (
-                <div key={s.name} className="flex items-center gap-2 p-2.5 rounded-lg border border-gray-100 hover:border-[#c9f31d] hover:bg-[#c9f31d08] transition-all group">
-                  <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-md bg-gray-50 group-hover:bg-[#c9f31d] group-hover:text-[#1a1a1a] transition-colors text-gray-600">
-                    <s.Icon size={18} />
+                <div key={s.name} className="flex items-center gap-2 p-2.5 rounded-lg border border-gray-100 hover:border-[#c9f31d] hover:bg-[#c9f31d08] transition-all group bg-white">
+                  <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-md bg-gray-50 group-hover:bg-white transition-colors border border-transparent group-hover:border-gray-200 shadow-sm">
+                    <i className={`${s.cls} text-[22px]`}></i>
                   </div>
-                  <span className="font-mono text-xs font-bold truncate">{s.name}</span>
+                  <span className="font-mono text-xs font-bold truncate group-hover:text-black transition-colors">{s.name}</span>
                 </div>
               ))}
             </div>
@@ -311,20 +325,22 @@ export default function Home() {
       <section ref={servicesRef} className="w-full bg-[#f7f7f7] py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <h2 className="section-title text-4xl font-black text-center mb-16 font-main tracking-tight uppercase">WHAT I DO</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { t: 'WEB DESIGN', d: 'Modern, responsive and user-focused designs that convert visitors.' },
-              { t: 'FULL STACK DEVELOPMENT', d: 'End-to-end web applications using MERN stack and more.' },
-              { t: 'PERFORMANCE OPTIMIZATION', d: 'Speed up your application for better SEO and user experience.' },
-              { t: 'DEPLOYMENT & DEVOPS', d: 'Deploy scalable apps on cloud platforms like AWS, Vercel & more.' }
+              { t: 'WEB DESIGN', d: 'Modern, responsive and user-focused designs that convert visitors.', Icon: Paintbrush },
+              { t: 'FULL STACK DEVELOPMENT', d: 'End-to-end web applications using modern tech stacks.', Icon: Code },
+              { t: 'MOBILE APPS', d: 'Cross-platform mobile applications for iOS and Android.', Icon: Smartphone },
+              { t: 'DESKTOP APPS', d: 'Native and cross-platform desktop applications.', Icon: Monitor },
+              { t: 'PWAs', d: 'Progressive Web Apps that work offline and feel native.', Icon: Globe },
+              { t: 'BROWSER EXTENSIONS', d: 'Custom browser extensions to enhance workflows.', Icon: Puzzle },
+              { t: 'LOW LEVEL SOLUTIONS', d: 'High-performance system programming and architecture.', Icon: Cpu },
+              { t: 'PERFORMANCE OPTIMIZATION', d: 'Speed up your application for better SEO and UX.', Icon: Zap },
+              { t: 'DEPLOYMENT & DEVOPS', d: 'Deploy scalable apps on modern cloud infrastructure.', Icon: CloudCog }
             ].map((srv, idx) => (
               <div key={idx} className="bg-white p-8 border-2 border-transparent hover:border-[#c9f31d] rounded-xl shadow-sm hover:shadow-lg transition-all group">
-                <Zap size={36} className="text-[#c9f31d] mb-6 group-hover:scale-110 transition-transform" />
-                <h3 className="font-bold text-2xl mb-4 font-main uppercase">{srv.t}</h3>
-                <p className="text-gray-600 mb-6">{srv.d}</p>
-                <a href="#" className="text-[#a4c715] font-bold flex items-center gap-2 hover:text-gray-900 transition-colors uppercase text-sm">
-                  READ MORE <ArrowRight size={14} />
-                </a>
+                <srv.Icon size={36} className="text-[#c9f31d] mb-6 group-hover:scale-110 transition-transform" />
+                <h3 className="font-bold text-xl mb-4 font-main uppercase">{srv.t}</h3>
+                <p className="text-gray-600 mb-6 text-sm">{srv.d}</p>
               </div>
             ))}
           </div>

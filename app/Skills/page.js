@@ -36,19 +36,19 @@ export default function Skills() {
             <h3 className="font-bold text-xl mb-5 border-b-4 border-[#c9f31d] inline-block pb-1">FRONTEND</h3>
             <div className="grid grid-cols-2 gap-3">
               {[
-                { name: 'HTML', Icon: FileCode },
-                { name: 'CSS', Icon: Paintbrush },
-                { name: 'JavaScript', Icon: Braces },
-                { name: 'TypeScript', Icon: FileType },
-                { name: 'React', Icon: Atom },
-                { name: 'Next.js', Icon: Triangle },
-                { name: 'Tailwind', Icon: Wind }
+                { name: 'HTML', cls: 'devicon-html5-plain colored' },
+                { name: 'CSS', cls: 'devicon-css3-plain colored' },
+                { name: 'JavaScript', cls: 'devicon-javascript-plain colored' },
+                { name: 'TypeScript', cls: 'devicon-typescript-plain colored' },
+                { name: 'React', cls: 'devicon-react-original colored' },
+                { name: 'Next.js', cls: 'devicon-nextjs-plain' },
+                { name: 'Tailwind', cls: 'devicon-tailwindcss-original colored' }
               ].map(s => (
-                <div key={s.name} className="flex items-center gap-2 p-2.5 rounded-lg border border-gray-100 hover:border-[#c9f31d] hover:bg-[#c9f31d08] transition-all group">
-                  <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-md bg-gray-50 group-hover:bg-[#c9f31d] group-hover:text-[#1a1a1a] transition-colors text-gray-600">
-                    <s.Icon size={18} />
+                <div key={s.name} className="flex items-center gap-2 p-2.5 rounded-lg border border-gray-100 hover:border-[#c9f31d] hover:bg-[#c9f31d08] transition-all group bg-white">
+                  <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-md bg-gray-50 group-hover:bg-white transition-colors border border-transparent group-hover:border-gray-200 shadow-sm">
+                    <i className={`${s.cls} text-[22px]`}></i>
                   </div>
-                  <span className="font-mono text-xs font-bold truncate">{s.name}</span>
+                  <span className="font-mono text-xs font-bold truncate group-hover:text-black transition-colors">{s.name}</span>
                 </div>
               ))}
             </div>
@@ -59,22 +59,21 @@ export default function Skills() {
             <h3 className="font-bold text-xl mb-5 border-b-4 border-[#c9f31d] inline-block pb-1">BACKEND</h3>
             <div className="grid grid-cols-2 gap-3">
               {[
-                { name: 'Node.js', Icon: Hexagon },
-                { name: 'Express', Icon: Server },
-                { name: 'FastAPI', Icon: Zap },
-                { name: 'Flask', Icon: Code },
-                { name: 'Rust', Icon: Wrench },
-                { name: 'Axum', Icon: Activity },
-                { name: 'MongoDB', Icon: Database },
-                { name: 'PostgreSQL', Icon: Database },
-                { name: 'MySQL', Icon: Database },
-                { name: 'Redis', Icon: Zap }
+                { name: 'Node.js', cls: 'devicon-nodejs-plain colored' },
+                { name: 'Express', cls: 'devicon-express-original colored' },
+                { name: 'FastAPI', cls: 'devicon-fastapi-plain colored' },
+                { name: 'Flask', cls: 'devicon-flask-original colored' },
+                { name: 'Rust', cls: 'devicon-rust-plain text-black' },
+                { name: 'MongoDB', cls: 'devicon-mongodb-plain colored' },
+                { name: 'PostgreSQL', cls: 'devicon-postgresql-plain colored' },
+                { name: 'MySQL', cls: 'devicon-mysql-plain colored' },
+                { name: 'Redis', cls: 'devicon-redis-plain colored' }
               ].map(s => (
-                <div key={s.name} className="flex items-center gap-2 p-2.5 rounded-lg border border-gray-100 hover:border-[#c9f31d] hover:bg-[#c9f31d08] transition-all group">
-                  <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-md bg-gray-50 group-hover:bg-[#c9f31d] group-hover:text-[#1a1a1a] transition-colors text-gray-600">
-                    <s.Icon size={18} />
+                <div key={s.name} className="flex items-center gap-2 p-2.5 rounded-lg border border-gray-100 hover:border-[#c9f31d] hover:bg-[#c9f31d08] transition-all group bg-white">
+                  <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-md bg-gray-50 group-hover:bg-white transition-colors border border-transparent group-hover:border-gray-200 shadow-sm">
+                    <i className={`${s.cls} text-[22px]`}></i>
                   </div>
-                  <span className="font-mono text-xs font-bold truncate">{s.name}</span>
+                  <span className="font-mono text-xs font-bold truncate group-hover:text-black transition-colors">{s.name}</span>
                 </div>
               ))}
             </div>
@@ -85,16 +84,16 @@ export default function Skills() {
             <h3 className="font-bold text-xl mb-5 border-b-4 border-[#c9f31d] inline-block pb-1">QUEUES & STREAMING</h3>
             <div className="grid grid-cols-2 gap-3">
               {[
-                { name: 'Kafka', Icon: Radio },
-                { name: 'RabbitMQ', Icon: Workflow },
-                { name: 'Flink', Icon: Activity },
-                { name: 'BullMQ', Icon: ListTodo }
+                { name: 'Kafka', cls: 'devicon-apachekafka-original colored' },
+                { name: 'RabbitMQ', cls: 'devicon-rabbitmq-original colored' },
+                { name: 'Flink', cls: 'devicon-apache-plain colored' },
+                { name: 'BullMQ', cls: 'devicon-redis-plain colored' }
               ].map(s => (
-                <div key={s.name} className="flex items-center gap-2 p-2.5 rounded-lg border border-gray-100 hover:border-[#c9f31d] hover:bg-[#c9f31d08] transition-all group">
-                  <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-md bg-gray-50 group-hover:bg-[#c9f31d] group-hover:text-[#1a1a1a] transition-colors text-gray-600">
-                    <s.Icon size={18} />
+                <div key={s.name} className="flex items-center gap-2 p-2.5 rounded-lg border border-gray-100 hover:border-[#c9f31d] hover:bg-[#c9f31d08] transition-all group bg-white">
+                  <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-md bg-gray-50 group-hover:bg-white transition-colors border border-transparent group-hover:border-gray-200 shadow-sm">
+                    <i className={`${s.cls} text-[22px]`}></i>
                   </div>
-                  <span className="font-mono text-xs font-bold truncate">{s.name}</span>
+                  <span className="font-mono text-xs font-bold truncate group-hover:text-black transition-colors">{s.name}</span>
                 </div>
               ))}
             </div>
@@ -105,16 +104,16 @@ export default function Skills() {
             <h3 className="font-bold text-xl mb-5 border-b-4 border-[#c9f31d] inline-block pb-1">TOOLS</h3>
             <div className="grid grid-cols-2 gap-3">
               {[
-                { name: 'Git', Icon: GitBranch },
-                { name: 'npm', Icon: Package },
-                { name: 'Docker', Icon: Container },
-                { name: 'GitHub', Icon: Github }
+                { name: 'Git', cls: 'devicon-git-plain colored' },
+                { name: 'npm', cls: 'devicon-npm-original-wordmark colored' },
+                { name: 'Docker', cls: 'devicon-docker-plain colored' },
+                { name: 'GitHub', cls: 'devicon-github-original colored' }
               ].map(s => (
-                <div key={s.name} className="flex items-center gap-2 p-2.5 rounded-lg border border-gray-100 hover:border-[#c9f31d] hover:bg-[#c9f31d08] transition-all group">
-                  <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-md bg-gray-50 group-hover:bg-[#c9f31d] group-hover:text-[#1a1a1a] transition-colors text-gray-600">
-                    <s.Icon size={18} />
+                <div key={s.name} className="flex items-center gap-2 p-2.5 rounded-lg border border-gray-100 hover:border-[#c9f31d] hover:bg-[#c9f31d08] transition-all group bg-white">
+                  <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-md bg-gray-50 group-hover:bg-white transition-colors border border-transparent group-hover:border-gray-200 shadow-sm">
+                    <i className={`${s.cls} text-[22px]`}></i>
                   </div>
-                  <span className="font-mono text-xs font-bold truncate">{s.name}</span>
+                  <span className="font-mono text-xs font-bold truncate group-hover:text-black transition-colors">{s.name}</span>
                 </div>
               ))}
             </div>

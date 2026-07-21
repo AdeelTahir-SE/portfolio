@@ -1,0 +1,38 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "title": "E-Commerce Platform",
+      "desc": "Full-featured e-commerce platform with admin dashboard, payments and analytics.",
+      "tech": ["React", "Node.js", "MongoDB", "Tailwind"],
+      "features": "User Authentication, Product Management, Stripe Integration, Admin Dashboard.",
+      "liveUrl": "#",
+      "githubUrl": "#"
+    },
+    {
+      "id": "2",
+      "title": "Task Management App",
+      "desc": "A productivity app to manage daily tasks with real-time updates.",
+      "tech": ["Next.js", "Firebase", "Tailwind CSS"],
+      "features": "Real-time sync, Drag-and-drop, Notifications.",
+      "liveUrl": "#",
+      "githubUrl": "#"
+    }
+  ],
+  "experiences": [
+    {
+      "id": "1",
+      "role": "Frontend Developer",
+      "company": "Tech Solutions Inc.",
+      "duration": "Jan 2022 - Present",
+      "desc": "Developing scalable web applications using React and Next.js. Improving performance and accessibility across all projects."
+    },
+    {
+      "id": "2",
+      "role": "Junior Web Developer",
+      "company": "Creative Web Agency",
+      "duration": "Jun 2020 - Dec 2021",
+      "desc": "Assisted in building client websites using modern HTML, CSS, and JavaScript. Collaborated with designers to implement pixel-perfect UIs."
+    }
+  ]
+}

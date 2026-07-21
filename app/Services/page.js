@@ -1,13 +1,11 @@
-import Head from 'next/head';
+export const metadata = {
+  title: 'Services - Adeel Tahir Portfolio',
+  description: 'Services offered by Adeel Tahir',
+};
 
 export default function Services() {
   return (
-    <>
-      <Head>
-        <title>Services - Adeel Tahir Portfolio</title>
-        <meta name="description" content="Services offered by Adeel Tahir" />
-      </Head>
-      <div className="min-h-screen bg-white text-black pt-24 pb-16 px-4 sm:px-6 lg:px-8" style={{ fontFamily: 'var(--font-main)' }}>
+    <div className="min-h-screen bg-white text-black pt-24 pb-16 px-4 sm:px-6 lg:px-8" style={{ fontFamily: 'var(--font-main)' }}>
         <div className="max-w-7xl mx-auto space-y-12">
           
           <div className="text-center">
@@ -69,6 +67,5 @@ export default function Services() {
 
         </div>
       </div>
-    </>
   );
 }

@@ -9,9 +9,9 @@ import { Download, Menu, Code2 } from 'lucide-react';
 const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/AboutMe' },
-  { label: 'Skills', href: '/#skills' },
-  { label: 'Projects', href: '/#projects' },
-  { label: 'Experience', href: '/#experience' },
+  { label: 'Skills', href: '/Skills' },
+  { label: 'Projects', href: '/Projects' },
+  { label: 'Experience', href: '/Experience' },
   { label: 'Contact', href: '/ContactMe' }
 ];
 

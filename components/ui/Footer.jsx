@@ -50,9 +50,9 @@ export default function Footer() {
             <h4 className="text-white font-bold mb-6 tracking-widest text-sm" style={{ fontFamily: 'var(--font-mono)' }}>QUICK LINKS</h4>
             <ul className="flex flex-col gap-3">
               <li><Link href="/AboutMe" className="text-gray-400 hover:text-[#c9f31d] transition-colors">About Me</Link></li>
-              <li><Link href="/#skills" className="text-gray-400 hover:text-[#c9f31d] transition-colors">Skills</Link></li>
-              <li><Link href="/#services" className="text-gray-400 hover:text-[#c9f31d] transition-colors">Services</Link></li>
-              <li><Link href="/#projects" className="text-gray-400 hover:text-[#c9f31d] transition-colors">Projects</Link></li>
+              <li><Link href="/Skills" className="text-gray-400 hover:text-[#c9f31d] transition-colors">Skills</Link></li>
+              <li><Link href="/Services" className="text-gray-400 hover:text-[#c9f31d] transition-colors">Services</Link></li>
+              <li><Link href="/Projects" className="text-gray-400 hover:text-[#c9f31d] transition-colors">Projects</Link></li>
               <li><Link href="/ContactMe" className="text-gray-400 hover:text-[#c9f31d] transition-colors">Contact</Link></li>
             </ul>
           </div>
@@ -71,7 +71,7 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-bold mb-6 tracking-widest text-sm" style={{ fontFamily: 'var(--font-mono)' }}>OTHER</h4>
             <ul className="flex flex-col gap-3">
-              <li><Link href="/#experience" className="text-gray-400 hover:text-[#c9f31d] transition-colors">Experience</Link></li>
+              <li><Link href="/Experience" className="text-gray-400 hover:text-[#c9f31d] transition-colors">Experience</Link></li>
               <li><Link href="/#testimonials" className="text-gray-400 hover:text-[#c9f31d] transition-colors">Testimonials</Link></li>
               <li><Link href="/terms" className="text-gray-400 hover:text-[#c9f31d] transition-colors">Terms of Service</Link></li>
               <li><Link href="/privacy" className="text-gray-400 hover:text-[#c9f31d] transition-colors">Privacy Policy</Link></li>
